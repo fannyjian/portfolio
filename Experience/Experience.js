@@ -29,7 +29,7 @@ export default class Experience {
         this.world = new World();
 
         this.sizes.on("resize", () => {
-            this.update();
+            this.resize();
         })
         this.time.on("update", () => {
             this.update();
@@ -37,13 +37,15 @@ export default class Experience {
     }
 
     resize() {
-        this.camera.update();
-        this.renderer.update();
+        this.camera.resize();
+        this.world.resize();
+        this.renderer.resize();
     }
 
     update() {
         this.camera.update();
         this.renderer.update();
+        this.world.update();
     }
 
 }
