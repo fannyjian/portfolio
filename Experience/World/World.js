@@ -1,6 +1,6 @@
 import * as THREE from "three";
 import Experience from "../Experience";
-import Room from "./Room";
+import Prince from "./Prince";
 import Controls from "./Controls";
 import Environment from "./Environment";
 import Sky from "./Sky";
@@ -16,7 +16,7 @@ export default class World {
 
         this.resources.on("ready", () => {
             this.environment = new Environment();
-            this.room = new Room();
+            this.prince = new Prince();
             // this.sky = new Sky();
             this.controls = new Controls();
         })
@@ -28,8 +28,8 @@ export default class World {
     }
 
     update() {
-        if (this.room) {
-            this.room.update();
+        if (this.prince) {
+            this.prince.update();
         }
 
         if (this.controls) {

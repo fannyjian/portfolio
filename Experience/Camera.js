@@ -48,8 +48,8 @@ export default class Camera {
         // this.helper = new THREE.CameraHelper(this.orthographicCamera);
         // this.scene.add(this.helper);
 
-        // const size = 20;
-        // const divisions = 20;
+        const size = 20;
+        const divisions = 20;
 
         // const gridHelper = new THREE.GridHelper(size, divisions);
         // this.scene.add(gridHelper);
@@ -70,11 +70,13 @@ export default class Camera {
         this.perspectiveCamera.updateProjectionMatrix()
 
         // updating orthographic cam on resize 
-        this.orthographicCamera.left = (-this.sizes.aspect * this.sizes.frustrum) / 2,
-        this.orthographicCamera.right = (-this.sizes.aspect * this.sizes.frustrum) / 2,
-        this.orthographicCamera.top = this.sizes.frustrum / 2,
-        this.orthographicCamera.bottom = - this.sizes.frustrum / 2,
-        this.orthographicCamera.updateProjectionMatrix()
+        this.orthographicCamera.left =
+            (-this.sizes.aspect * this.sizes.frustrum) / 2;
+        this.orthographicCamera.right =
+            (this.sizes.aspect * this.sizes.frustrum) / 2;
+        this.orthographicCamera.top = this.sizes.frustrum / 2;
+        this.orthographicCamera.bottom = -this.sizes.frustrum / 2;
+        this.orthographicCamera.updateProjectionMatrix();
     }
 
     update() {

@@ -3,7 +3,7 @@ import GSAP from "gsap";
 
 import Experience from "../Experience";
 
-export default class Room {
+export default class Prince {
     constructor() {
         this.experience = new Experience();
         this.scene = this.experience.scene;
