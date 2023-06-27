@@ -12,17 +12,17 @@ export default class Controls {
         this.resources = this.experience.resources;
         this.time = this.experience.time;
         this.prince = this.experience.world.prince.actualPrince;
+        this.sky = this.experience.world.sky;
         GSAP.registerPlugin(ScrollTrigger);
 
         this.setPath();
     }
 
     setPath(){
-        console.log(this.prince);
-        this.timeline = new GSAP.timeline();
-        this.timeline.to(this.prince.position, {
-            x: 5,
-        });
+        // this.timeline = new GSAP.timeline();
+        // this.timeline.to(this.prince.position, {
+        //     x: 5,
+        // });
     }
 
     resize() { 
@@ -31,6 +31,5 @@ export default class Controls {
 
 
     update() {
-
     }
 }

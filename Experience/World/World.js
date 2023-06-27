@@ -17,7 +17,7 @@ export default class World {
         this.resources.on("ready", () => {
             this.environment = new Environment();
             this.prince = new Prince();
-            // this.sky = new Sky();
+            this.sky = new Sky();
             this.controls = new Controls();
         })
 
@@ -34,6 +34,10 @@ export default class World {
 
         if (this.controls) {
             this.controls.update();
+        }
+
+        if (this.sky) {
+            this.sky.update();
         }
     }
 }

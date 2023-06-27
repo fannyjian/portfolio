@@ -170,7 +170,7 @@ html, body {
 .hero-main-title {
   font-family: 'Abril Fatface';
   font-size: 60px;
-  color: var(--pink);
+  color: rgb(251, 224, 208);
 }
 
 .hero-main-description {
