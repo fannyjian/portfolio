@@ -1,7 +1,21 @@
-*{
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Playfair+Display&display=swap');
+
+* {
   margin:0;
   padding:0;
   box-sizing: border-box;
+}
+
+html, body {
+  font-family:'Playfair Display', sans-serif;
+  color: var(--brown);
+}
+
+:root {
+  --beige: #EFDBCE;
+  --brown: #C99471;
+  --pink: #efaa9b;
+  --green: #adb597;
 }
 
 /* Experience  ---------------------------------------- */
@@ -29,6 +43,104 @@
   position:relative;
 }
 
+/* Section formatting  ---------------------------------------- */
+.section-margin {
+  height: 500px;
+  width: 100%;
+}
+
+.section {
+  width: 50%;
+  padding: 1000px 4%;
+  margin: 0;
+  background-color: var(--beige);
+}
+
+.left {
+  margin-right: auto;
+}
+
+.right {
+  margin-left: auto;
+}
+
+.section-intro-wrapper {
+  position: relative;
+  padding: 20% 5%;
+  border-bottom: 2px solid var(--green);
+  padding-bottom: 250px;
+}
+
+.section-detail-wrapper {
+  position: relative;
+  padding: 20% 5%;
+  border-bottom: 2px solid var(--green);
+  padding-bottom: 40px;
+}
+
+.section-heading {
+  font-size: 20px;
+  font-weight: bolder;
+  line-height: 4;
+  margin-top: 20px;
+}
+
+.section-text {
+  line-height: 2;
+  font-size: 16px;
+}
+
+/* Fancy section title ---------------------------------------- */
+.section-title{
+  position: relative;
+  color: var(--brown);
+}
+
+.section-title-text{
+  display: block;
+  font-size: 40px;
+  font-weight: 500;
+  transform-origin: left;
+  transform: skewY(10deg);
+  z-index: 5;
+  text-transform: uppercase;
+}
+
+.styleOne,
+.styleTwo,
+.styleThree {
+  position: absolute;
+  display: block;
+  width: 100%;
+  max-width: 278px;
+  height: 60px;
+  border: 1px solid var(--brown);
+  transform-origin: left;
+  transform: skewY(-10deg);
+}
+
+.styleOne {
+  top:0px;
+}
+
+.styleTwo{
+  top:80px;
+}
+
+.styleThree {
+  top:80px;
+  transform: skewY(10deg);
+  background-color: var(--brown);
+}
+
+.section-number {
+  position: absolute;
+  bottom: 15px;
+  right: 0;
+  color: var(--brown);
+  font-size: 30px;
+}
+
 /* Hero  ---------------------------------------- */
 .hero{
   width: 100vw;
@@ -39,5 +151,34 @@
   position: relative;
   height: 100%;
   width: calc(100% - 160px);
-  margin: 0 auto
+  margin: 0 auto;
+  max-width: 1100px;
+}
+
+.hero-main {
+  position: absolute;
+  bottom: 120px;
+  left: 0;
+}
+
+.hero-second {
+  position: absolute;
+  top: calc(50% - 150px);
+  right: 0;
+}
+
+.hero-main-title {
+  font-family: 'Abril Fatface';
+  font-size: 60px;
+  color: var(--pink);
+}
+
+.hero-main-description {
+  font-size: 18px;
+  color: var(--green)
+}
+
+.hero-second-subheading {
+  font-size: 24px;
+  color: var(--green)
 }
