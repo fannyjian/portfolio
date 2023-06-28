@@ -1,6 +1,6 @@
 import * as THREE from "three";
 import GSAP from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrollTrigger } from "gsap/ScrollTrigger.js";
 
 import Experience from "../Experience";
 
@@ -8,6 +8,7 @@ export default class Controls {
     constructor() {
         this.experience = new Experience();
         this.scene = this.experience.scene;
+        this.sizes = this.experience.sizes;
         this.camera = this.experience.camera;
         this.resources = this.experience.resources;
         this.time = this.experience.time;
@@ -19,10 +20,17 @@ export default class Controls {
     }
 
     setPath(){
-        // this.timeline = new GSAP.timeline();
-        // this.timeline.to(this.prince.position, {
-        //     x: 5,
-        // });
+        this.timeline = new GSAP.timeline();
+        this.timeline.to(this.prince.position, {
+            x: () => {
+                return this.sizes.width * 0.003;
+            },
+            scrollTrigger: {
+                triger: ".first-move",   
+                scrub: 0.6,
+                invalidateOnRefresh: true,
+            }
+        });
     }
 
     resize() { 

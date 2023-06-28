@@ -1,4 +1,5 @@
 import * as THREE from "three";
+import GSAP from "gsap";
 
 import Experience from "../Experience";
 
@@ -32,6 +33,32 @@ export default class Environment {
 
         this.ambientLight = new THREE.AmbientLight("#BD855C", 0.8);
         this.scene.add(this.ambientLight)
+    }
+
+    switchTheme(theme) {
+        if (theme === "light") {
+            GSAP.to(this.sunLight.color, {
+                r: 240/255,
+                g: 100/255,
+                b: 200/255
+            });
+            GSAP.to(this.ambientLight.color, {
+                r: 0.2,
+                g:0.1,
+                b: 0.15,
+            });
+        } else {
+            GSAP.to(this.sunLight.color, {
+                r: 255/255,
+                g: 180/255,
+                b: 181/255
+            });
+            GSAP.to(this.ambientLight.color, {
+                r: 0.4,
+                g:0.15,
+                b: 0,
+            });
+        }
     }
 
     resize() {

@@ -43,9 +43,62 @@ html, body {
   position:relative;
 }
 
+/* Toggle bar  ---------------------------------------- */
+.toggle-bar {
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  top: 48px;
+  right: 48px;
+  z-index: 9999999999999999;
+}
+
+.sun-wrapper,
+.moon-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.toggle-button {
+  cursor: pointer;
+  position: relative;
+  width: 56px;
+  height: 28px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--green);
+  border-radius: 999px;
+  margin: 0px 10px;
+  box-shadow: var(--beige) 0px 2px 15px 0px;
+}
+
+.toggle-circle {
+  position: absolute;
+  left: 6px;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  background-color: var(--beige);
+  transition:all 0.2s ease in-out;
+}
+
+.toggle-button:hover .toggle-circle {
+  transform: scale(0.85);
+}
+
+.slide {
+  left: 28px;
+}
+
 /* Section formatting  ---------------------------------------- */
 .section-margin {
-  height: 500px;
+  height: 3000px;
   width: 100%;
 }
 
@@ -170,7 +223,7 @@ html, body {
 .hero-main-title {
   font-family: 'Abril Fatface';
   font-size: 60px;
-  color: rgb(251, 224, 208);
+  color: rgb(234, 199, 157);
 }
 
 .hero-main-description {
