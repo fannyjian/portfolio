@@ -59,5 +59,8 @@ export default class Prince {
             this.actualPrince.rotation.y = this.lerp.current;
         }
 
+        if (this.actualPrince.rotation.y <= -1) {
+            this.actualPrince.rotation.y -= 0.002;
+        }
     }
 }

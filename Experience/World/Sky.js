@@ -21,7 +21,7 @@ export default class Sky {
         this.plane = new THREE.Mesh(this.skyGeometry, this.skyMaterial);
         this.scene.add(this.plane);
         this.plane.receiveShadow = true;
-        this.plane.rotation.x = Math.PI / 2;
+        this.plane.rotation.x = Math.PI / 1.5;
         this.plane.position.y = -1;
         this.plane.receiveShadow = true;
     }
