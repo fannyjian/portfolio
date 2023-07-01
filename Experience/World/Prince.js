@@ -55,7 +55,9 @@ export default class Prince {
             this.lerp.ease
         )
 
-        this.actualPrince.rotation.y = this.lerp.current;
+        if (Math.abs(this.actualPrince.rotation.y) < 1) {
+            this.actualPrince.rotation.y = this.lerp.current;
+        }
 
     }
 }

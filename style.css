@@ -8,7 +8,14 @@
 
 html, body {
   font-family:'Playfair Display', sans-serif;
-  color: var(--brown);
+  color: var(--color-text);
+}
+
+h1,
+section,
+p,
+span {
+  transition: all 0.4s  /* allows smooth theme change */
 }
 
 :root {
@@ -16,6 +23,20 @@ html, body {
   --brown: #C99471;
   --pink: #F1A39E;
   --green: #adb597;
+  --light-green: #5a757eb0;
+  --light-pink: #be6a55ba;
+}
+
+.dark-theme {
+  --color-text: var(--beige);
+  --color-background-text: var(--brown);
+  --color-section-text: #efdbcecc;
+}
+
+.light-theme{
+  --color-text: var(--brown);
+  --color-background-text: var(--beige);
+  --color-section-text: #c99471b9;
 }
 
 /* Experience  ---------------------------------------- */
@@ -103,31 +124,35 @@ html, body {
 }
 
 .section {
+  position: relative;
   width: 50%;
   padding: 1000px 4%;
   margin: 0;
-  background-color: var(--beige);
+  background-color: var(--color-background-text);
+  overflow: hidden;
 }
 
 .left {
   margin-right: auto;
+  border-top-right-radius: 200px 200px;
 }
 
 .right {
   margin-left: auto;
+  border-top-left-radius: 200px 200px;
 }
 
 .section-intro-wrapper {
   position: relative;
   padding: 20% 5%;
-  border-bottom: 2px solid var(--green);
+  border-bottom: 2px solid var(--color-text);
   padding-bottom: 250px;
 }
 
 .section-detail-wrapper {
   position: relative;
   padding: 20% 5%;
-  border-bottom: 2px solid var(--green);
+  border-bottom: 2px solid var(--color-text);
   padding-bottom: 40px;
 }
 
@@ -146,7 +171,7 @@ html, body {
 /* Fancy section title ---------------------------------------- */
 .section-title{
   position: relative;
-  color: var(--brown);
+  color: var(--color-section-text);
 }
 
 .section-title-text{
@@ -167,7 +192,7 @@ html, body {
   width: 100%;
   max-width: 278px;
   height: 60px;
-  border: 1px solid var(--brown);
+  border: 1px solid var(--color-section-text);
   transform-origin: left;
   transform: skewY(-10deg);
 }
@@ -183,7 +208,7 @@ html, body {
 .styleThree {
   top:80px;
   transform: skewY(10deg);
-  background-color: var(--brown);
+  background-color: var(--color-section-text);
 }
 
 .section-number {
@@ -234,4 +259,36 @@ html, body {
 .hero-second-subheading {
   font-size: 24px;
   color: var(--green)
+}
+
+/* other colors override ----------------------- */
+.second-text {
+  color: var(--light-green)
+}
+
+.second-border {
+  border-color: var(--light-green)
+}
+
+.second-background {
+  background-color: var(--light-green)
+}
+
+.third-text {
+  color: var(--light-pink)
+}
+
+.third-border {
+  border-color: var(--light-pink)
+}
+
+.third-background {
+  background-color: var(--light-pink)
+}
+
+/* Media queries */
+@media (max-width: 968px) {
+  .section {
+    width: 100%   /* mobile view: section covers screen */
+  }
 }
