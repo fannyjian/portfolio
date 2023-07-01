@@ -57,6 +57,8 @@ export default class Prince {
 
         if (Math.abs(this.actualPrince.rotation.y) < 1) {
             this.actualPrince.rotation.y = this.lerp.current;
+        } else {
+            // not moveable 
         }
 
         if (this.actualPrince.rotation.y <= -1) {

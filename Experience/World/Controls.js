@@ -241,7 +241,7 @@ export default class Controls {
 
             all: () => {
                 this.sections = document.querySelectorAll(".section");
-                this.sections.forEach(section => {
+                this.sections.forEach((section) => {
                     // looping through each section and grabbing the indicated components 
                     this.progressWrapper = section.querySelector(".progress-wrapper");
                     this.progressBar = section.querySelector(".progress-bar");
