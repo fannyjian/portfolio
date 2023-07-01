@@ -22,8 +22,6 @@ export default class Controls {
     setScrollTrigger(){
         ScrollTrigger.matchMedia({
             "(min-width: 969px)": () => {
-                console.log("fired desktop");
-
                 this.actualPrince.scale.set(0.05, 0.05, 0.05);
                 this.actualPrince.position.set(0, -2, 0);
                 this.actualPrince.rotation.set(0, 0, 0);
@@ -111,8 +109,6 @@ export default class Controls {
             },
 
             "(max-width: 968px)": () => {
-                console.log("fired mobile");
-
                 // resets for mobile
                 this.actualPrince.scale.set(0.04, 0.04, 0.04)
                 this.actualPrince.position.set(0, -1, 0);
@@ -130,15 +126,15 @@ export default class Controls {
                     },
                 })
                     .to(this.actualPrince.scale, {
-                        x: 0.07,
-                        y:0.07,
-                        z:0.07
+                        x: 0.08,
+                        y:0.08,
+                        z:0.08
                     }, "same")
                     .to(this.actualPrince.position, {
                         y:-3,
                     }, "same")
                     .to(this.camera.orthographicCamera.position, {
-                        y: 4.5
+                        y: 5
                     }, "same");
 
                 // mobile second section --------------------------------------
@@ -191,9 +187,69 @@ export default class Controls {
                         y: -1
                     }, "same");
             },
-            all: function() {
 
-            },
+            all: () => {
+                this.sections = document.querySelectorAll(".section");
+                this.sections.forEach(section => {
+                    // looping through each section and grabbing the indicated components 
+                    this.progressWrapper = section.querySelector(".progress-wrapper");
+                    this.progressBar = section.querySelector(".progress-bar");
+
+                    if (section.classList.contains("right")) {
+                        GSAP.to(section, {
+                            borderTopLeftRadius: 10,
+                            scrollTrigger: {
+                                trigger: section,
+                                start: "top bottom",
+                                end: "top top",
+                                scrub: 0.6,
+                            },
+                        });
+                        GSAP.to(section, {
+                            borderBottomLeftRadius: 700,
+                            scrollTrigger: {
+                                trigger: section,
+                                start: "bottom bottom",
+                                end: "bottom top",
+                                scrub: 0.6,
+                            },
+                        });
+
+                    } else {
+                        GSAP.to(section, {
+                            borderTopRightRadius: 10,
+                            scrollTrigger: {
+                                trigger: section,
+                                start: "top bottom",
+                                end: "top top",
+                                scrub: 0.6,
+                            },
+                        });
+                        GSAP.to(section, {
+                            borderBottomRightRadius: 700,
+                            scrollTrigger: {
+                                trigger: section,
+                                start: "bottom bottom",
+                                end: "bottom top",
+                                scrub: 0.6,
+                            },
+                        });
+                    }
+
+                    GSAP.from(this.progressBar, {
+                        scaleY: 0,
+                        scrollTrigger: {
+                            trigger: section,
+                            start: "top top",
+                            end: "bottom bottom",
+                            scrub: 0.4,     // progressBar has 100 view height, scrub delays the fill of height 
+                            pin: this.progressWrapper,  // progressBar pinned to progressWrapper, which has height of 0 in viewport => moves with view
+                            pinSpacing: false,
+                        },
+                    });
+                });
+            }
+
         })
 
     }
