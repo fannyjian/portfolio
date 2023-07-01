@@ -23,7 +23,7 @@ span {
   --brown: #C99471;
   --pink: #F1A39E;
   --green: #adb597;
-  --light-green: #5a757eb0;
+  --light-blue: #5a757eb0;
   --light-pink: #be6a55ba;
 }
 
@@ -45,7 +45,7 @@ span {
   position:fixed;
   width:100vw;
   height:100vh;
-}
+} 
 
 .experience-canvas{
   width:100%;
@@ -292,15 +292,15 @@ span {
 
 /* other colors override ----------------------- */
 .second-text {
-  color: var(--light-green)
+  color: var(--light-blue)
 }
 
 .second-border {
-  border-color: var(--light-green)
+  border-color: var(--light-blue)
 }
 
 .second-background {
-  background-color: var(--light-green)
+  background-color: var(--light-blue)
 }
 
 .third-text {
