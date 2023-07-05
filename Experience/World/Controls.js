@@ -73,8 +73,9 @@ export default class Controls {
     }
 
     setScrollTrigger(){
-        ScrollTrigger.matchMedia({
-            "(min-width: 969px)": () => {
+        let mm = GSAP.matchMedia();
+        
+        mm.add("(min-width: 969px)", () => {
                 this.actualPrince.scale.set(0.05, 0.05, 0.05);
                 this.actualPrince.position.set(0, -2, 0);
                 this.actualPrince.rotation.set(0, 0, 0);
@@ -153,9 +154,9 @@ export default class Controls {
                     .to(this.camera.orthographicCamera.rotation, {
                         y: 1
                     }, "third");
-            },
+            });
 
-            "(max-width: 968px)": () => {
+        mm.add("(max-width: 968px)", () => {
                 // resets for mobile
                 this.actualPrince.scale.set(0.04, 0.04, 0.04)
                 this.actualPrince.position.set(0, -1, 0);
@@ -238,70 +239,72 @@ export default class Controls {
                     .to(this.camera.orthographicCamera.rotation, {
                         y: 1
                     }, "third")
-            },
+            });
 
-            all: () => {
-                this.sections = document.querySelectorAll(".section");
-                this.sections.forEach((section) => {
-                    this.progressWrapper =
-                        section.querySelector(".progress-wrapper");
-                    this.progressBar = section.querySelector(".progress-bar");
+        mm.add("all", () => {
+            this.sections = document.querySelectorAll(".section");
+            this.sections.forEach((section) => {
+                this.progressWrapper =
+                    section.querySelector(".progress-wrapper");
+                this.progressBar = section.querySelector(".progress-bar");
 
-                    if (section.classList.contains("right")) {
-                        GSAP.to(section, {
-                            borderTopLeftRadius: 10,
-                            scrollTrigger: {
-                                trigger: section,
-                                start: "top bottom",
-                                end: "top top",
-                                scrub: 0.6,
-                            },
-                        });
-                        GSAP.to(section, {
-                            borderBottomLeftRadius: 700,
-                            scrollTrigger: {
-                                trigger: section,
-                                start: "bottom bottom",
-                                end: "bottom top",
-                                scrub: 0.6,
-                            },
-                        });
-                    } else {
-                        GSAP.to(section, {
-                            borderTopRightRadius: 10,
-                            scrollTrigger: {
-                                trigger: section,
-                                start: "top bottom",
-                                end: "top top",
-                                scrub: 0.6,
-                            },
-                        });
-                        GSAP.to(section, {
-                            borderBottomRightRadius: 700,
-                            scrollTrigger: {
-                                trigger: section,
-                                start: "bottom bottom",
-                                end: "bottom top",
-                                scrub: 0.6,
-                            },
-                        });
-                    }
-                    GSAP.from(this.progressBar, {
-                        scaleY: 0,
+                if (section.classList.contains("right")) {
+                    GSAP.to(section, {
+                        borderTopLeftRadius: 10,
                         scrollTrigger: {
                             trigger: section,
-                            start: "top top",
-                            end: "bottom bottom",
-                            scrub: 0.4,
-                            pin: this.progressWrapper,
-                            pinSpacing: false,
+                            start: "top bottom",
+                            end: "top top",
+                            scrub: 0.6,
+                            invalidateOnRefresh: true,
                         },
                     });
+                    GSAP.to(section, {
+                        borderBottomLeftRadius: 700,
+                        scrollTrigger: {
+                            trigger: section,
+                            start: "bottom bottom",
+                            end: "bottom top",
+                            scrub: 0.6,
+                            invalidateOnRefresh: true,
+                        },
+                    });
+                } else {
+                    GSAP.to(section, {
+                        borderTopRightRadius: 10,
+                        scrollTrigger: {
+                            trigger: section,
+                            start: "top bottom",
+                            end: "top top",
+                            scrub: 0.6,
+                            invalidateOnRefresh: true,
+                        },
+                    });
+                    GSAP.to(section, {
+                        borderBottomRightRadius: 700,
+                        scrollTrigger: {
+                            trigger: section,
+                            start: "bottom bottom",
+                            end: "bottom top",
+                            scrub: 0.6,
+                            invalidateOnRefresh: true,
+                        },
+                    });
+                }
+                GSAP.from(this.progressBar, {
+                    scaleY: 0,
+                    scrollTrigger: {
+                        trigger: section,
+                        start: "top top",
+                        end: "bottom bottom",
+                        scrub: 0.4,
+                        pin: this.progressWrapper,
+                        pinSpacing: false,
+                        invalidateOnRefresh: true,
+                    },
                 });
-            },
-
-        })
-
+            });
+        });
     }
 
     resize() { 
