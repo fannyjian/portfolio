@@ -243,8 +243,8 @@ export default class Controls {
             all: () => {
                 this.sections = document.querySelectorAll(".section");
                 this.sections.forEach((section) => {
-                    // looping through each section and grabbing the indicated components 
-                    this.progressWrapper = section.querySelector(".progress-wrapper");
+                    this.progressWrapper =
+                        section.querySelector(".progress-wrapper");
                     this.progressBar = section.querySelector(".progress-bar");
 
                     if (section.classList.contains("right")) {
@@ -254,21 +254,18 @@ export default class Controls {
                                 trigger: section,
                                 start: "top bottom",
                                 end: "top top",
-                                scrub: 0.4,
-                                invalidateOnRefresh: true,
+                                scrub: 0.6,
                             },
                         });
                         GSAP.to(section, {
-                            borderBottomLeftRadius: 1000,
+                            borderBottomLeftRadius: 700,
                             scrollTrigger: {
                                 trigger: section,
                                 start: "bottom bottom",
                                 end: "bottom top",
-                                scrub: 0.4,
-                                invalidateOnRefresh: true,
+                                scrub: 0.6,
                             },
                         });
-
                     } else {
                         GSAP.to(section, {
                             borderTopRightRadius: 10,
@@ -276,35 +273,32 @@ export default class Controls {
                                 trigger: section,
                                 start: "top bottom",
                                 end: "top top",
-                                scrub: 0.4,
-                                invalidateOnRefresh: true,
+                                scrub: 0.6,
                             },
                         });
                         GSAP.to(section, {
-                            borderBottomRightRadius: 1000,
+                            borderBottomRightRadius: 700,
                             scrollTrigger: {
                                 trigger: section,
                                 start: "bottom bottom",
                                 end: "bottom top",
-                                scrub: 0.4,
-                                invalidateOnRefresh: true,
+                                scrub: 0.6,
                             },
                         });
                     }
-
                     GSAP.from(this.progressBar, {
                         scaleY: 0,
                         scrollTrigger: {
                             trigger: section,
                             start: "top top",
                             end: "bottom bottom",
-                            scrub: 0.4,     // progressBar has 100 view height, scrub delays the fill of height 
-                            pin: this.progressWrapper,  // progressBar pinned to progressWrapper, which has height of 0 in viewport => moves with view
+                            scrub: 0.4,
+                            pin: this.progressWrapper,
                             pinSpacing: false,
                         },
                     });
                 });
-            }
+            },
 
         })
 
