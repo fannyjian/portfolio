@@ -17,6 +17,8 @@ export default class Controls {
 
         GSAP.registerPlugin(ScrollTrigger);
 
+        document.querySelector(".page").style.overflow = "visible";
+
         this.setSmoothScroll();
         this.setScrollTrigger();
     }
@@ -106,15 +108,9 @@ export default class Controls {
                     },
                 })
                     .to(this.actualPrince.position, {
-                        x: () => {
-                            return -4.5;
-                        },
-                        y: () => {
-                            return -8;
-                        },
-                        z: () => {
-                            return 0;
-                        }
+                        x: -4.5,
+                        y:  -8,
+                        z: 0
                     }, "second")
                     .to(this.actualPrince.scale, {
                         x: 0.1,

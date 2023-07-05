@@ -29,7 +29,7 @@ export default class PreLoader extends EventEmitter {
         this.sky = this.experience.world.sky;
     }
 
-    playFirstIntro() {
+    firstIntro() {
         return new Promise ((resolve) => {
             this.timeline = new GSAP.timeline();
 
@@ -47,14 +47,16 @@ export default class PreLoader extends EventEmitter {
         });
     }
 
-    playSecondIntro() {
-        this.secondTimeline = new GSAP.timeline();
+    secondIntro() {
+        return new Promise ((resolve) => {
+            this.secondTimeline = new GSAP.timeline();
 
-        if (this.device === "desktop") {
-            // desktop animation
-        } else {
-            // mobile animation
-        }
+            if (this.device === "desktop") {
+                // desktop animation
+            } else {
+                // mobile animation
+            }
+        });
     }
 
     onScroll(e) {
@@ -68,5 +70,9 @@ export default class PreLoader extends EventEmitter {
         await this.playFirstIntro();
         this.scrollOnceEvent = this.onScroll.bind(this)     // pointer
         window.addEventListener("wheel", this.scrollOnceEvent);
+    }
+
+    async playSecondIntro() {
+        await this.secondIntro();
     }
 }
