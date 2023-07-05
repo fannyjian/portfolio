@@ -50,10 +50,6 @@ export default class World extends EventEmitter {
             this.prince.update();
         }
 
-        if (this.controls) {
-            this.controls.update();
-        }
-
         if (this.sky) {
             this.sky.update();
         }

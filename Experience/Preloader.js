@@ -52,7 +52,6 @@ export default class PreLoader extends EventEmitter {
 
         if (this.device === "desktop") {
             // desktop animation
-
         } else {
             // mobile animation
         }

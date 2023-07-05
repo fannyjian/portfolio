@@ -259,6 +259,7 @@ export default class Controls {
                                 start: "top bottom",
                                 end: "top top",
                                 scrub: 0.4,
+                                invalidateOnRefresh: true,
                             },
                         });
                         GSAP.to(section, {
@@ -268,6 +269,7 @@ export default class Controls {
                                 start: "bottom bottom",
                                 end: "bottom top",
                                 scrub: 0.4,
+                                invalidateOnRefresh: true,
                             },
                         });
 
@@ -279,6 +281,7 @@ export default class Controls {
                                 start: "top bottom",
                                 end: "top top",
                                 scrub: 0.4,
+                                invalidateOnRefresh: true,
                             },
                         });
                         GSAP.to(section, {
@@ -288,6 +291,7 @@ export default class Controls {
                                 start: "bottom bottom",
                                 end: "bottom top",
                                 scrub: 0.4,
+                                invalidateOnRefresh: true,
                             },
                         });
                     }
