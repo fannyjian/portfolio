@@ -22,20 +22,8 @@ export default class Prince {
     }
 
     setModel() {
-        this.actualPrince.children.forEach((child) => {
-            child.castShadow = true;
-            child.receiveShadow = true;
-            
-            if (child instanceof THREE.Group) {
-                child.children.forEach((groupChild) => {
-                    groupChild.castShadow = true;
-                    groupChild.receiveShadow = true;
-                })
-            }
-        })
         this.scene.add(this.actualPrince);
-        this.actualPrince.scale.set(0.05, 0.05, 0.05);
-        this.actualPrince.position.set(0, -2, 0);
+        this.actualPrince.scale.set(0, 0, 0);
     }
 
     onMouseMove() {
@@ -55,14 +43,6 @@ export default class Prince {
             this.lerp.ease
         )
 
-        if (Math.abs(this.actualPrince.rotation.y) < 1) {
-            this.actualPrince.rotation.y = this.lerp.current;
-        } else {
-            // not moveable 
-        }
-
-        if (this.actualPrince.rotation.y <= -1) {
-            this.actualPrince.rotation.y -= 0.002;
-        }
+        this.actualPrince.rotation.y = this.lerp.current;
     }
 }

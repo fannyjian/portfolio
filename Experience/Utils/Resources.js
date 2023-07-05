@@ -2,7 +2,7 @@ import * as THREE from "three";
 
 import EventEmitter from "events";
 import {GLTFLoader} from "three/examples/jsm/loaders/GLTFLoader"
-import {DRACOLoader} from "three/examples/jsm/loaders/DRACOLoader"
+import { DRACOLoader } from 'three/addons/loaders/DRACOLoader.js';
 import Experience from "../Experience"
 
 // class to load resources and for other classes to access
@@ -25,8 +25,10 @@ export default class Resources extends EventEmitter{
     setLoaders() {
         this.loaders = {}
         this.loaders.gltfLoader = new GLTFLoader();
-        this.loaders.dracoLoader = new DRACOLoader();   // since this is compressed?
-        this.loaders.dracoLoader.setDecoderPath("/draco");
+
+        /* for compressed files */
+        this.loaders.dracoLoader = new DRACOLoader();  
+        this.loaders.dracoLoader.setDecoderPath("/draco/");
         this.loaders.gltfLoader.setDRACOLoader(this.loaders.dracoLoader)
     }
 

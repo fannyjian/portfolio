@@ -115,19 +115,19 @@ export default class Controls {
                         z: () => {
                             return 0;
                         }
-                    }, "same")
+                    }, "second")
                     .to(this.actualPrince.scale, {
                         x: 0.1,
                         y: 0.1,
                         z: 0.1
-                    }, "same")
-                    .to(this.actualPrince.rotation, {
-                        y: 1,
-                    }, "same")
+                    }, "second")
+                    .to(this.camera.orthographicCamera.rotation, {
+                        y: -1
+                    }, "second")
                     .to(this.camera.orthographicCamera.position, {
-                        x: 1,
-                        y: 5,
-                    }, "same");
+                        x: -9,
+                        y: 5.5,
+                    }, "second");
 
                 // desktop third section --------------------------------------
                 this.thirdMoveTimeline = new GSAP.timeline({
@@ -140,23 +140,23 @@ export default class Controls {
                         invalidateOnRefresh: true,
                     },
                 })
-                    .to(this.actualPrince.rotation, {
-                        y:-1,
-                    }, "same")
                     .to(this.actualPrince.scale, {
                         x: 0.05,
                         y: 0.05,
                         z: 0.05
-                    }, "same")
+                    }, "third")
                     .to(this.actualPrince.position, {
                         x: 0,
                         y: -2,
                         z: 0
-                    }, "same")
+                    }, "third")
                     .to(this.camera.orthographicCamera.position, {
-                        x: -3,
+                        x: 4,
                         y: 3,
-                    }, "same");
+                    }, "third")
+                    .to(this.camera.orthographicCamera.rotation, {
+                        y: 1
+                    }, "third");
             },
 
             "(max-width: 968px)": () => {
@@ -203,13 +203,17 @@ export default class Controls {
                         x: 0.1,
                         y: 0.1,
                         z: 0.1
-                    }, "same")
-                    .to(this.actualPrince.rotation, {
-                        y: 1
-                    }, "same")
+                    }, "second")
                     .to(this.actualPrince.position, {
-                        y: -8
-                    }, "same");
+                        y: -5
+                    }, "second")
+                    .to(this.camera.orthographicCamera.rotation, {
+                        y: -1
+                    }, "second")
+                    .to(this.camera.orthographicCamera.position, {
+                        x: -12,
+                        y: 7
+                    }, "second");
 
 
                 // mobile third section --------------------------------------
@@ -227,16 +231,17 @@ export default class Controls {
                         x: 0.05,
                         y: 0.05,
                         z: 0.05
-                    }, "same")
+                    }, "third")
                     .to(this.actualPrince.position, {
                         y: 0
-                    }, "same")
+                    }, "third")
                     .to(this.camera.orthographicCamera.position, {
+                        x: 12,
                         y: 5
-                    }, "same")
-                    .to(this.actualPrince.rotation, {
-                        y: -1
-                    }, "same");
+                    }, "third")
+                    .to(this.camera.orthographicCamera.rotation, {
+                        y: 1
+                    }, "third")
             },
 
             all: () => {
@@ -253,16 +258,16 @@ export default class Controls {
                                 trigger: section,
                                 start: "top bottom",
                                 end: "top top",
-                                scrub: 0.6,
+                                scrub: 0.4,
                             },
                         });
                         GSAP.to(section, {
-                            borderBottomLeftRadius: 700,
+                            borderBottomLeftRadius: 1000,
                             scrollTrigger: {
                                 trigger: section,
                                 start: "bottom bottom",
                                 end: "bottom top",
-                                scrub: 0.6,
+                                scrub: 0.4,
                             },
                         });
 
@@ -273,16 +278,16 @@ export default class Controls {
                                 trigger: section,
                                 start: "top bottom",
                                 end: "top top",
-                                scrub: 0.6,
+                                scrub: 0.4,
                             },
                         });
                         GSAP.to(section, {
-                            borderBottomRightRadius: 700,
+                            borderBottomRightRadius: 1000,
                             scrollTrigger: {
                                 trigger: section,
                                 start: "bottom bottom",
                                 end: "bottom top",
-                                scrub: 0.6,
+                                scrub: 0.4,
                             },
                         });
                     }
