@@ -67,7 +67,7 @@ export default class PreLoader extends EventEmitter {
     }
 
     async playIntro() {
-        await this.playFirstIntro();
+        await this.firstIntro();
         this.scrollOnceEvent = this.onScroll.bind(this)     // pointer
         window.addEventListener("wheel", this.scrollOnceEvent);
     }
