@@ -14,7 +14,9 @@ html, body {
 h1,
 section,
 p,
-span {
+span,
+svg,
+a {
   transition: all 0.4s  /* allows smooth theme change */
 }
 
@@ -24,7 +26,7 @@ span {
   --pink: #F1A39E;
   --green: #adb597;
   --light-blue: #5a757eb0;
-  --light-pink: #be6a55ba;
+  --light-pink: #be6a5590;
 }
 
 .dark-theme {
@@ -183,19 +185,18 @@ span {
   position: relative;
   padding: 20% 5%;
   border-bottom: 2px solid var(--color-text);
-  padding-bottom: 250px;
+  padding-bottom: 200px;
 }
 
 .section-detail-wrapper {
   position: relative;
   padding: 20% 5%;
   border-bottom: 2px solid var(--color-text);
-  padding-bottom: 40px;
+  padding-bottom: 200px;
 }
 
 .section-heading {
-  font-size: 20px;
-  font-weight: bolder;
+  font-size: 25px;
   line-height: 4;
   margin-top: 20px;
 }
@@ -204,6 +205,7 @@ span {
   line-height: 2;
   font-size: 16px;
   margin-top: 18px;
+  display: inline;
 }
 
 /* Fancy section title ---------------------------------------- */
@@ -299,7 +301,7 @@ span {
   color: var(--green)
 }
 
-/* others ----------------------- */
+/* links ----------------------- */
 .icon {
   width: 30px;
   margin-right: 10px;
@@ -311,40 +313,75 @@ span {
 }
 
 .link {
-  line-height: 4;
-  margin-top: 20px;
+  margin-left: 8px;
   color: var(--color-section-text);
   text-decoration: none;
+  height: 17px;
+  width: 17px;
+  margin-bottom: -1px;
 }
 
-.header-link {
-  display: inline;
-  font-size: 20px;
+.link:hover {
+  box-shadow: var(--color-section-text) 0px 2px 15px 0px;
+  transform: scale(0.85);
 }
 
-.link:hover .header-link{
-  transform: scaleY(0.9);
+/* form ----------------------- */
+.feedback {
+  background-color: var(--light-pink);
+  border-radius:3%;
+  padding: 5%;
+  margin-top: 5%;
+  display: flex;
+  flex-direction: column;
+  opacity: 80%;
 }
 
+.label-text {
+  margin-top: 22px;
+  margin-bottom: 5px;
+  color: var(--beige);
+}
+
+input, textarea {
+  background-color: var(--beige);
+  opacity: 60%;
+  border-style:hidden;
+  border-radius: 6px;
+  padding: 5%;
+  font-family: 'Playfair Display';
+}
+
+textarea {
+  resize: none;
+  padding: 3%;
+}
+
+button {
+  background-color: var(--beige);
+  border-style: none;
+  padding: 10px 25px 10px 25px;
+  width: fit-content;
+  border-radius: 6px;
+  margin-top: 15px;
+  margin-bottom: 22px;
+  font-family: 'Playfair Display';
+  color: var(--brown);
+  opacity: 80%;
+  align-self: flex-end;
+  font-size:medium;
+}
+
+button:hover {
+  box-shadow: var(--beige) 0px 2px 15px 0px;
+  transform: scale(0.95);
+}
+
+
+/* bg-pink py-3 px-8 outline-none w-fit text-white/70 font-bold shadow-md shadow-white rounded-xl" */
 /* other colors override ----------------------- */
-.second-text {
-  color: var(--light-blue)
-}
-
-.second-border {
-  border-color: var(--light-blue)
-}
-
 .second-background {
-  background-color: var(--light-blue)
-}
-
-.third-text {
-  color: var(--light-pink)
-}
-
-.third-border {
-  border-color: var(--light-pink)
+  background-color: var(--green)
 }
 
 .third-background {
