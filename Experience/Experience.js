@@ -8,7 +8,6 @@ import assets from "./Utils/assets";
 import Camera from "./Camera";
 import Theme from "./Theme";
 import Renderer from "./Renderer";
-import Preloader from "./Preloader";
 
 import World from "./World/World";
 
