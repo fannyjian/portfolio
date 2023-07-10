@@ -349,32 +349,59 @@ button {
 .icon {
   width: 30px;
   margin-right: 10px;
+  opacity: 50%;
 }
 
 .icon:hover {
-  box-shadow: var(--color-section-text) 0px 2px 15px 0px;
-  transform: scale(1.1);
+  box-shadow: var(--color-section-text) 0px 2px 15px 4px;
+  transform: scale(1.15);
   transition: 0.2s ease-in-out;
 }
 
 .icons-wrapper {
   display: flex;
   flex-direction: row;
+  gap: 9px;
+  margin-top: 10px;
+}
+
+.links-wrapper {
+  display: flex;
+  flex-direction: row;
   gap: 7px;
+  margin-top: 0px;
 }
 
-.link {
-  margin-left: 8px;
+.credit-link {
+  font-size: 20px;
+  padding:0;
+  font-weight: bold;
   color: var(--color-section-text);
-  text-decoration: none;
-  height: 17px;
-  width: 17px;
-  margin-bottom: -1px;
+  background: none;
+  opacity: 1;
 }
 
-.link:hover {
-  box-shadow: var(--color-section-text) 0px 2px 15px 0px;
-  transform: scale(0.85);
+.credit-link:hover {
+  box-shadow: none;
+  text-shadow: 0px 0px 10px var(--color-section-text);
+  transform: scale(1.05);
+}
+
+.hidden-text {
+  position: absolute;
+  background-color: var(--color-section-text);
+  color: var(--color-background-text);
+  font-size: 15px;
+  border-radius: 5px;
+  opacity: 40%;
+  visibility: hidden;
+  transition: 0.1s;
+  padding: 5px;
+  margin-top: 5px;
+}
+
+.credit-link:hover .hidden-text {
+  visibility: visible;
 }
 
 /* form ----------------------- */
