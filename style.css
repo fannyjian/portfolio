@@ -235,6 +235,7 @@ button {
 
 .preview {
   height: 50vh;
+  border-radius: 10px;
 }
 
 .hidden-image {
@@ -300,6 +301,7 @@ button {
   color: var(--color-section-text);
   font-size: 30px;
 }
+
 
 /* Hero  ---------------------------------------- */
 .hero{

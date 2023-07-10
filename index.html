@@ -50,7 +50,7 @@
             <div class="progress-bar"></div>
           </div>
 
-          <!-- <div class="section-intro-wrapper">
+          <div class="section-intro-wrapper">
             <h1 class="section-title">
               <span class="section-title-text">About Me.</span>
               <div class="section-title-decoration styleOne"></div>
@@ -58,8 +58,7 @@
               <div class="section-title-decoration styleThree"></div>
             </h1>
             <span class="section-number">01</span>
-          </div> -->
-
+          </div>
 
           <div class="section-detail-wrapper">
             <h3 class="section-heading">Hi! I'm Fanny</h3>
@@ -75,7 +74,7 @@
             <div class="progress-bar second-background"></div>
           </div>
 
-          <!-- <div class="section-intro-wrapper">
+          <div class="section-intro-wrapper">
             <h1 class="section-title">
               <span class="section-title-text">My Works.</span>
               <div class="section-title-decoration styleOne"></div>
@@ -83,7 +82,7 @@
               <div class="section-title-decoration styleThree"></div>
             </h1> 
             <span class="section-number">02</span>
-          </div> -->
+          </div>
 
           <div class="section-detail-wrapper">
             <a href="https://ay2223s1-cs2103t-t15-3.github.io/tp/" target="_blank">
@@ -124,7 +123,7 @@
             <div class="progress-bar third-background"></div>
           </div>
 
-          <!-- <div class="section-intro-wrapper">
+          <div class="section-intro-wrapper">
             <h1 class="section-title">
               <span class="section-title-text">Contact Me.</span>
               <div class="section-title-decoration styleOne"></div>
@@ -132,8 +131,7 @@
               <div class="section-title-decoration styleThree"></div>
             </h1>
             <span class="section-number">03</span>
-          </div> -->
-
+          </div>
 
           <div class="section-detail-wrapper">
             <h3 class="section-heading">Let's get in touch!</h3>
@@ -150,7 +148,7 @@
             <h3 class="section-heading">Any feedback?</h3>
             <p class="section-text">I'd love to hear about what you think about my works and website, and how I can improve ❤️</p>
             
-            <!-- <form class="form">
+            <form class="form" onsubmit="sendEmail(); reset(); return false;">
               <label for="username" class="label-text">Your name</label>
               <input type="text" id="name" name="name" placeholder="What's your name?" required/>
 
@@ -160,13 +158,29 @@
               <label for="feedback" class="label-text">Your message</label>
               <textarea id="feedback" name="feedback" placeholder="Tell me anything!" required rows="8"></textarea>
 
-              <button type="submit" class="submit-button" name="submit">Send</button>
-            </form> -->
-
+              <button type="submit" class="submit-button">Send</button>
+            </form>
           </div>
         </section>
       </div>
     </div>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+      function sendEmail() {
+          Email.send({
+          SecureToken: "b3fe0b82-5871-4d68-a1a0-b4d5b9930280",
+
+          To : 'fanny1jian@gmail.com',
+          From : document.getElementById("email").value,
+          Subject : "New Contact Form Submission",
+          Body : "Name: " + document.getElementById("name").value
+              + "<br> Email: " + document.getElementById("email").value
+              + "<br> Message: " + document.getElementById("feedback").value
+        }).then(
+          message => alert(message)
+        );
+      }    
+    </script>
     <script type="module" src="/main.js"></script>
   </body>
 </html>
