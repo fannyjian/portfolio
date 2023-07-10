@@ -327,7 +327,7 @@ a {
 }
 
 /* form ----------------------- */
-.feedback {
+.form {
   background-color: var(--light-pink);
   border-radius:3%;
   padding: 5%;
@@ -375,6 +375,7 @@ button {
 button:hover {
   box-shadow: var(--beige) 0px 2px 15px 0px;
   transform: scale(0.95);
+  cursor: pointer;
 }
 
 
