@@ -29,7 +29,7 @@ export default class Experience {
         this.resources = new Resources(assets);
         this.theme = new Theme();
         this.world = new World();
-        this.preloader = new Preloader();
+        // this.preloader = new Preloader();
 
         this.sizes.on("resize", () => {
             this.resize();

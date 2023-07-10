@@ -476,4 +476,10 @@ button:hover {
     right: 0;
     left: auto;
   }
+  .hero-main-title {
+    font-size: 40px;
+  }
+  .hero-second {
+    top: 20vh;
+  }
 }
