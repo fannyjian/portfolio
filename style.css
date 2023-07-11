@@ -357,7 +357,7 @@ button {
 }
 
 .credit-link {
-  font-size: 20px;
+  font-size: 15px;
   padding:0;
   font-weight: bold;
   color: var(--color-section-text);
@@ -454,6 +454,10 @@ button {
     box-shadow: var(--beige) 0px 2px 15px 0px;
     transform: scale(0.95);
     cursor: pointer;
+  }
+
+  .credit-link {
+    font-size: 20px;
   }
 
   .credit-link:hover .hidden-text {
