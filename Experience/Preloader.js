@@ -33,17 +33,19 @@ export default class PreLoader extends EventEmitter {
         return new Promise ((resolve) => {
             this.timeline = new GSAP.timeline();
 
-            if (this.device === "desktop") {
-                // desktop animation
-                this.timeline.to(this.prince.position, {
-                    x: 0,
-                    y: -2,
-                    z: 0,
-                    onComplete: resolve  // must do for all promise 
-                })
-            } else {
-                // mobile animation
-            }
+            // if (this.device === "desktop") {
+
+            // } else {
+            //     // mobile animation
+            // }
+            this.timeline.to(this.prince.position, {
+                x: 0,
+                y: -2,
+                z: 0,
+                ease: "power1.out",
+                duration: 0.7,
+                onComplete: resolve
+            });
         });
     }
 
@@ -52,27 +54,95 @@ export default class PreLoader extends EventEmitter {
             this.secondTimeline = new GSAP.timeline();
 
             if (this.device === "desktop") {
-                // desktop animation
+                this.secondTimeline.fromTo(this.prince.scale, 
+                    {
+                        x: 0,
+                        y: 0,
+                        z: 0,
+                    },
+                    {
+                        x: 0.05,
+                        y: 0.05,
+                        z: 0.05,
+                        duration: 0.7,
+                }, "desktop")
+                .fromTo(this.prince.rotation, 
+                    {
+                        y: -10,
+                    },
+                    {
+                        y: 0,
+                        duration: 0.7,
+                        onComplete: resolve,   
+                }, "desktop")
             } else {
-                // mobile animation
+                this.secondTimeline.fromTo(this.prince.scale, 
+                    {
+                        x: 0,
+                        y: 0,
+                        z: 0,
+                    },
+                    {
+                        x: 0.04,
+                        y: 0.04,
+                        z: 0.04,
+                        duration: 0.7,
+                }, "mobile")
+                .fromTo(this.prince.rotation, 
+                    {
+                        y: -10,
+                    },
+                    {
+                        y: 0,
+                        duration: 0.7,
+                        onComplete: resolve,   
+                }, "mobile")
             }
         });
     }
 
+    // on desktop: scroll
     onScroll(e) {
-        if (e.deltaY > 0) {     // scroll downwards
-            window.removeEventListener("wheel", this.scrollOnceEvent);
+        if (e.deltaY > 0) { 
+            this.removeEventListeners();
             this.playSecondIntro();
         }
     }
 
+    // on mobile: swipe up
+    onTouch(e) {
+        this.initialY = e.touches[0].clientY;
+    }
+
+    onTouchMove(e) {
+        let currentY = e.touches[0].clientY;
+        let difference = this.initialY - currentY;
+        if (difference > 0) {
+            this.removeEventListeners();
+            this.playSecondIntro();
+        }
+        this.initialY = null;
+    }
+
+    removeEventListeners() {
+        window.removeEventListener("wheel", this.scrollOnceEvent);
+        window.removeEventListener("touchstart", this.touchStart);
+        window.removeEventListener("touchmove", this.touchMove);
+    }
+
     async playIntro() {
         await this.firstIntro();
-        this.scrollOnceEvent = this.onScroll.bind(this)     // pointer
+
+        this.scrollOnceEvent = this.onScroll.bind(this);
+        this.touchStart = this.onTouch.bind(this);
+        this.touchMove = this.onTouchMove.bind(this);  
         window.addEventListener("wheel", this.scrollOnceEvent);
+        window.addEventListener("touchstart", this.touchStart);
+        window.addEventListener("touchmove", this.touchMove);
     }
 
     async playSecondIntro() {
         await this.secondIntro();
+        this.emit("enablecontrols");
     }
 }

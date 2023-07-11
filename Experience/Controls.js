@@ -2,7 +2,7 @@ import GSAP from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger.js";
 import ASScroll from "@ashthornton/asscroll";
 
-import Experience from "../Experience";
+import Experience from "./Experience";
 
 export default class Controls {
     constructor() {

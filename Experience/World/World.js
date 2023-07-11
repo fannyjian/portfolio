@@ -3,7 +3,6 @@ import EventEmitter from "events";
 
 import Experience from "../Experience";
 import Prince from "./Prince";
-import Controls from "./Controls";
 import Environment from "./Environment";
 import Sky from "./Sky";
 
@@ -22,7 +21,6 @@ export default class World extends EventEmitter {
             this.environment = new Environment();
             this.prince = new Prince();
             this.sky = new Sky();
-            this.controls = new Controls();
             this.emit("worldready");
         })
 
