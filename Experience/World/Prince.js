@@ -8,8 +8,14 @@ export default class Prince {
         this.experience = new Experience();
         this.scene = this.experience.scene;
         this.resources = this.experience.resources;
+        this.sizes = this.experience.sizes;
         this.prince = this.resources.items.prince;
-        this.actualPrince = this.prince.scene
+        this.actualPrince = this.prince.scene;
+        this.device = this.experience.sizes.device;
+
+        this.sizes.on("switchdevice", (device) => {
+            this.device = device;
+        })
 
         this.lerp = {
             current: 0,
@@ -23,26 +29,29 @@ export default class Prince {
 
     setModel() {
         this.scene.add(this.actualPrince);
-        this.actualPrince.scale.set(0, 0, 0);
     }
 
     onMouseMove() {
-        window.addEventListener("mousemove", (e) => {
-            this.rotation = ((e.clientX - window.innerWidth / 2) * 2) / window.innerWidth;
-            this.lerp.target = this.rotation * 0.2;
-        })
+        if (this.device == 'desktop') {
+            window.addEventListener("mousemove", (e) => {
+                this.rotation = ((e.clientX - window.innerWidth / 2) * 2) / window.innerWidth;
+                this.lerp.target = this.rotation * 0.2;
+            })
+        }
     }
 
     resize() {
     }
 
     update() {
-        this.lerp.current = GSAP.utils.interpolate(
-            this.lerp.current,
-            this.lerp.target,
-            this.lerp.ease
-        )
+        if (this.device == 'desktop') {
+            this.lerp.current = GSAP.utils.interpolate(
+                this.lerp.current,
+                this.lerp.target,
+                this.lerp.ease
+            )
 
-        this.actualPrince.rotation.y = this.lerp.current;
+            this.actualPrince.rotation.y = this.lerp.current;
+        }
     }
 }
