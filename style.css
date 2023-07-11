@@ -132,7 +132,7 @@ button {
 
 .section {
   position: relative;
-  width: 50%;
+  width: 100%;
   padding: 1000px 4%;
   margin: 0;
   background-color: var(--color-background-text);
@@ -163,7 +163,8 @@ button {
 .progress-bar-wrapper-left {
   position: absolute;
   top: 0;
-  left: 0;
+  left: auto;
+  right: 0;
 }
 
 .progress-bar-wrapper-right {
@@ -227,12 +228,6 @@ button {
   position: relative;
 }
 
-.section-heading-link:hover {
-  box-shadow: none;
-  text-shadow: 0px 0px 10px var(--color-section-text);
-  transform: scale(1.02);
-}
-
 .preview {
   height: 50vh;
   border-radius: 10px;
@@ -244,11 +239,6 @@ button {
   opacity: 50%;
   transition: 0.3s ease-in-out;
   left: 10vw;
-}
-
-.section-heading-link:hover .hidden-image{
-  visibility: visible;
-  opacity: 100%;
 }
 
 /* Fancy section title ---------------------------------------- */
@@ -325,13 +315,13 @@ button {
 
 .hero-second {
   position: absolute;
-  top: calc(50% - 150px);
   right: 0;
+  top: 20vh;
 }
 
 .hero-main-title {
   font-family: 'Abril Fatface';
-  font-size: 60px;
+  font-size: 40px;
   color: rgb(234, 199, 157);
 }
 
@@ -350,12 +340,6 @@ button {
   width: 30px;
   margin-right: 10px;
   opacity: 50%;
-}
-
-.icon:hover {
-  box-shadow: var(--color-section-text) 0px 2px 15px 4px;
-  transform: scale(1.15);
-  transition: 0.2s ease-in-out;
 }
 
 .icons-wrapper {
@@ -381,12 +365,6 @@ button {
   opacity: 1;
 }
 
-.credit-link:hover {
-  box-shadow: none;
-  text-shadow: 0px 0px 10px var(--color-section-text);
-  transform: scale(1.05);
-}
-
 .hidden-text {
   position: absolute;
   background-color: var(--color-section-text);
@@ -398,10 +376,6 @@ button {
   transition: 0.1s;
   padding: 5px;
   margin-top: 5px;
-}
-
-.credit-link:hover .hidden-text {
-  visibility: visible;
 }
 
 /* form ----------------------- */
@@ -450,14 +424,6 @@ button {
   font-size:medium;
 }
 
-button:hover {
-  box-shadow: var(--beige) 0px 2px 15px 0px;
-  transform: scale(0.95);
-  cursor: pointer;
-}
-
-
-/* bg-pink py-3 px-8 outline-none w-fit text-white/70 font-bold shadow-md shadow-white rounded-xl" */
 /* other colors override ----------------------- */
 .second-background {
   background-color: var(--green)
@@ -467,19 +433,53 @@ button:hover {
   background-color: var(--light-pink)
 }
 
-/* Media queries */
-@media (max-width: 968px) {
+/* media queries for desktop ----------------------- */
+@media (min-width: 969px) {
   .section {
-    width: 100%   /* mobile view: section covers screen */
+    width: 50% 
   }
   .progress-bar-wrapper-left {
-    right: 0;
-    left: auto;
+    right: auto;
+    left: 0;
   }
   .hero-main-title {
-    font-size: 40px;
+    font-size: 60px;
   }
   .hero-second {
-    top: 20vh;
+    top: calc(50% - 150px);
+  }
+
+  /* hidden imgs/texts only for desktop */
+  button:hover {
+    box-shadow: var(--beige) 0px 2px 15px 0px;
+    transform: scale(0.95);
+    cursor: pointer;
+  }
+
+  .credit-link:hover .hidden-text {
+    visibility: visible;
+  }
+
+  .credit-link:hover {
+    box-shadow: none;
+    text-shadow: 0px 0px 10px var(--color-section-text);
+    transform: scale(1.05);
+  }
+
+  .section-heading-link:hover .hidden-image{
+    visibility: visible;
+    opacity: 100%;
+  }
+
+  .section-heading-link:hover {
+    box-shadow: none;
+    text-shadow: 0px 0px 10px var(--color-section-text);
+    transform: scale(1.02);
+  }
+
+  .icon:hover {
+    box-shadow: var(--color-section-text) 0px 2px 15px 4px;
+    transform: scale(1.15);
+    transition: 0.2s ease-in-out;
   }
 }
