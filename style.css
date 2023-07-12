@@ -14,7 +14,6 @@ html, body {
 h1,
 section,
 p,
-span,
 svg,
 a,
 button {
@@ -90,38 +89,27 @@ button {
 }
 
 /* Toggle bar  ---------------------------------------- */
-.toggle-bar {
+.toggle-button {
+  top: 4%;
+  right: 8%;
+  z-index: 99999999999999;
+
   position: fixed;
   display: flex;
-
-  flex-direction: row;
   justify-content: center;
   align-items: center;
-  top: 48px;
-  right: 48px;
-  z-index: 99999999999999;
+  background-color: transparent;
 }
 
-.sun-wrapper,
-.moon-wrapper {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-
-.toggle-button {
+.toggle-image {
   cursor: pointer;
   position: relative;
   width: 56px;
   height: 28px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background-color: var(--green);
   border-radius: 999px;
-  margin: 0px 10px;
   box-shadow: var(--beige) 0px 2px 15px 0px;
+  opacity: 80%;
 }
 
 .toggle-circle {
@@ -132,6 +120,7 @@ button {
   height: 20px;
   background-color: var(--beige);
   transition:all 0.2s ease-in-out;
+  opacity: 60%;
 }
 
 .toggle-button:hover .toggle-circle {
@@ -476,6 +465,11 @@ button {
   }
   .hero-second {
     top: calc(50% - 150px);
+  }
+
+  .toggle-button {
+    top: 6%;
+    right: 4%
   }
 
   /* hidden imgs/texts only for desktop */
