@@ -39,7 +39,7 @@ export default class Sky {
         }
         this.geometry = new THREE.BufferGeometry();
         this.geometry.setAttribute( 'position', new THREE.Float32BufferAttribute( vertices, 3 ) );
-        this.material = new THREE.PointsMaterial( { color: "#EFDBCE", size: 2});
+        this.material = new THREE.PointsMaterial( { color: "#EFDBCE", size: 0.0});
         this.points = new THREE.Points( this.geometry, this.material );
         this.points.name="stars";
 
@@ -77,7 +77,10 @@ export default class Sky {
 
     update() {
         this.stars = this.scene.getObjectByName("stars");
-        this.stars.rotation.y += 0.0005;     
-        this.stars.rotation.x += 0.0001;           
+        
+        if (this.material.size == 2) {
+            this.stars.rotation.y += 0.0005;     
+            this.stars.rotation.x += 0.0001;    
+        }  
     }
 }

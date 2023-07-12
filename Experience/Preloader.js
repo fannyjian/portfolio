@@ -2,6 +2,7 @@ import EventEmitter from "events";
 import GSAP from "gsap"
 
 import Experience from "./Experience";
+import convert from "./Utils/convertDivsToSpans";
 
 export default class PreLoader extends EventEmitter {
     constructor() {
@@ -25,6 +26,13 @@ export default class PreLoader extends EventEmitter {
     }
 
     setAssets() {
+        convert(document.querySelector(".intro-text"));
+        convert(document.querySelector(".hero-main-title"));
+        convert(document.querySelector(".hero-main-description"));
+        convert(document.querySelector(".hero-second-subheading"));
+        convert(document.querySelector(".second-sub"));
+
+
         this.prince = this.experience.world.prince.actualPrince;
         this.sky = this.experience.world.sky;
     }
@@ -38,14 +46,12 @@ export default class PreLoader extends EventEmitter {
             // } else {
             //     // mobile animation
             // }
-            this.timeline.to(this.prince.position, {
-                x: 0,
-                y: -2,
-                z: 0,
-                ease: "power1.out",
-                duration: 0.7,
+            this.timeline.to(".intro-text .animatedis", {
+                yPercent: -100,
+                stagger: 0.08,
+                ease: "back.out(1.2)",
                 onComplete: resolve
-            });
+            })
         });
     }
 
@@ -65,16 +71,8 @@ export default class PreLoader extends EventEmitter {
                         y: 0.05,
                         z: 0.05,
                         duration: 0.7,
-                }, "desktop")
-                .fromTo(this.prince.rotation, 
-                    {
-                        y: -10,
-                    },
-                    {
-                        y: 0,
-                        duration: 0.7,
-                        onComplete: resolve,   
-                }, "desktop")
+                }, "same")
+
             } else {
                 this.secondTimeline.fromTo(this.prince.scale, 
                     {
@@ -87,17 +85,26 @@ export default class PreLoader extends EventEmitter {
                         y: 0.04,
                         z: 0.04,
                         duration: 0.7,
-                }, "mobile")
-                .fromTo(this.prince.rotation, 
-                    {
-                        y: -10,
-                    },
-                    {
-                        y: 0,
-                        duration: 0.7,
-                        onComplete: resolve,   
-                }, "mobile")
+                    }, "same")
             }
+
+            this.secondTimeline.fromTo(this.prince.rotation, 
+                {
+                    y: -10,
+                },
+                {
+                    y: 0,
+                    duration: 0.7,
+                }, "same")
+            .fromTo(this.sky.material, 
+                {
+                    size: 0.0
+                },
+                {
+                    size: 2,
+                    duration: 0.5,
+                    onComplete: resolve,   
+                })
         });
     }
 
@@ -132,6 +139,7 @@ export default class PreLoader extends EventEmitter {
 
     async playIntro() {
         await this.firstIntro();
+        this.moveFlag = true;
 
         this.scrollOnceEvent = this.onScroll.bind(this);
         this.touchStart = this.onTouch.bind(this);
@@ -142,7 +150,37 @@ export default class PreLoader extends EventEmitter {
     }
 
     async playSecondIntro() {
+        this.moveFlag = false;
+        this.scaleFlag = true;
         await this.secondIntro();
+        this.scaleFlag = false;
         this.emit("enablecontrols");
+    }
+
+    move() {
+        if (this.device === "desktop") {
+            this.prince.position.set(0, -2, 0);
+        } else {
+            this.prince.position.set(0, -1, 0);
+        }
+    }
+
+    scale() {
+        if (this.device === "desktop") {
+            this.prince.scale.set(0.05, 0.05, 0.05);
+        } else {
+            this.prince.scale.set(0.04, 0.04, 0.04);
+        }
+    }
+
+    update() {
+        // in the case that window dimensions switched device in between intros
+        if (this.moveFlag) {
+            this.move();
+        }
+
+        if (this.scaleFlag) {
+            this.scale();
+        }
     }
 }

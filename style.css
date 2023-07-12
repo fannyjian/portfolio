@@ -71,6 +71,24 @@ button {
   position:relative;
 }
 
+/* Preloader  ---------------------------------------- */
+.animatedis {
+  display: inline-block;
+  transform: translateY(100%);
+}
+
+.intro-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-weight: bolder;
+  font-size: 30px;
+  font-family: 'Abril Fatface';
+  color: var(--beige);
+  opacity: 60%;
+  transform: translate(-50%, -50%);
+}
+
 /* Toggle bar  ---------------------------------------- */
 .toggle-bar {
   position: fixed;
@@ -214,6 +232,8 @@ button {
   display: inline;
 }
 
+
+
 /* linked headings with img ---------------------------------------- */
 .section-heading-link {
   font-size: 40px;
@@ -226,6 +246,16 @@ button {
   margin-bottom: 10px;
   margin-top: 40px;
   position: relative;
+
+  /* animation */
+  text-shadow: none;
+  transition: text-shadow transform 0.7s ease-in-out;
+}
+
+.active {
+  text-shadow: 0px 0px 10px var(--color-section-text);
+  transform: scaleY(1.1) scaleX(1.1) translateX(5%);
+
 }
 
 .preview {

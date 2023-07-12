@@ -241,6 +241,20 @@ export default class Controls {
                     }, "third")
             });
 
+        mm.add("(max-width: 968px)", () => {
+            this.headings = document.querySelectorAll(".section-heading-link");
+            this.headings.forEach((heading) => {
+                GSAP.to(heading, {
+                    scrollTrigger: {
+                        trigger: heading,
+                        start: "top center",
+                        toggleClass: "active",
+                        invalidateOnRefresh: true,
+                    },
+                });
+            })
+        });
+
         mm.add("all", () => {
             this.sections = document.querySelectorAll(".section");
             this.sections.forEach((section) => {
