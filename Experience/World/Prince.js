@@ -45,7 +45,7 @@ export default class Prince {
     }
 
     update() {
-        if (this.device == 'desktop') {
+        if (this.device == 'desktop' && this.actualPrince.scale.y == 0.05) {
             this.lerp.current = GSAP.utils.interpolate(
                 this.lerp.current,
                 this.lerp.target,
