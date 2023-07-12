@@ -59,6 +59,63 @@ button {
 }
 
 /* Page Content  ---------------------------------------- */
+.preloader{
+  background-color: black;
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  opacity: 1;
+  z-index: 99999999999999999;
+}
+
+.preloader-wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.loading{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.circle{
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin: 6px;
+  background-color: var(--brown);
+  opacity: 80%;
+  animation: load 1s ease-in-out infinite;
+}
+
+.circle:nth-child(2){
+  animation-delay: 0.1s;
+}
+
+.circle:nth-child(3){
+  animation-delay: 0.2s;
+}
+
+@keyframes load {
+  0% {
+    transform: translateY(0)
+  }
+
+  20% {
+    transform: translateY(-12px)
+  }
+
+  40% {
+    transform: translateY(0)
+  }
+  
+}
+
+/* Page Content  ---------------------------------------- */
 .page{
   z-index:99999;
   width: 100%;
@@ -70,7 +127,7 @@ button {
   position:relative;
 }
 
-/* Preloader  ---------------------------------------- */
+/* Intro  ---------------------------------------- */
 .animatedis {
   display: inline-block;
   transform: translateY(100%);

@@ -40,7 +40,14 @@ export default class PreLoader extends EventEmitter {
     firstIntro() {
         return new Promise ((resolve) => {
             this.timeline = new GSAP.timeline();
-            this.timeline.to(".intro-text .animatedis", {
+            this.timeline.to(".preloader", {
+                opacity: 0,
+                delay: 3,
+                onComplete: () => {
+                    document.querySelector(".preloader").classList.add("hidden")
+                }
+            })
+            .to(".intro-text .animatedis", {
                 yPercent: -100,
                 stagger: 0.05,
                 ease: "back.out(1.5)",
