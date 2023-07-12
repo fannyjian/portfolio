@@ -10,9 +10,9 @@ This website is inspired by [Bokoko33's award-winning website](https://bokoko33.
 
 <div align="center"><img src="./docs/littleprince.png" alt="website screenshot" height=40%/></div>
 
-## Tech Stack
+## Technologies
 
-React | Three JS | JavaScript | HTML | CSS
+React | Three JS | HTML | CSS
 
 ## Credits
 
