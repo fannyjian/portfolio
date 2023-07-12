@@ -29,6 +29,7 @@ export default class Prince {
 
     setModel() {
         this.scene.add(this.actualPrince);
+        this.actualPrince.scale.set(0, 0, 0);
     }
 
     onMouseMove() {

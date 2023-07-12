@@ -29,7 +29,7 @@ export default class PreLoader extends EventEmitter {
         convert(document.querySelector(".intro-text"));
         convert(document.querySelector(".hero-main-title"));
         convert(document.querySelector(".hero-main-description"));
-        convert(document.querySelector(".hero-second-subheading"));
+        convert(document.querySelector(".first-sub"));
         convert(document.querySelector(".second-sub"));
 
 
@@ -40,24 +40,33 @@ export default class PreLoader extends EventEmitter {
     firstIntro() {
         return new Promise ((resolve) => {
             this.timeline = new GSAP.timeline();
-
-            // if (this.device === "desktop") {
-
-            // } else {
-            //     // mobile animation
-            // }
             this.timeline.to(".intro-text .animatedis", {
                 yPercent: -100,
-                stagger: 0.08,
-                ease: "back.out(1.2)",
-                onComplete: resolve
+                stagger: 0.05,
+                ease: "back.out(1.5)",
             })
+            .to(".arrow-svg-wrapper", {
+                opacity: 0.8,
+            }, "same")
+            .to(".toggle-button", {
+                opacity: 1,
+                onComplete: resolve
+            }, "same");
         });
     }
 
     secondIntro() {
         return new Promise ((resolve) => {
             this.secondTimeline = new GSAP.timeline();
+
+            this.timeline.to(".intro-text .animatedis", {
+                yPercent: 100,
+                stagger: 0,
+                ease: "back.in(1.5)",
+            }, "first")
+            .to(".arrow-svg-wrapper", {
+                opacity: 0,
+            }, "first")
 
             if (this.device === "desktop") {
                 this.secondTimeline.fromTo(this.prince.scale, 
@@ -96,15 +105,39 @@ export default class PreLoader extends EventEmitter {
                     y: 0,
                     duration: 0.7,
                 }, "same")
+            .to(".hero-main-title .animatedis", {
+                    yPercent: -100,
+                    stagger: 0.05,
+                    ease: "back.out(1.7)",
+                }, "then")
+            .to(".hero-main-description .animatedis", {
+                yPercent: -100,
+                stagger: 0.05,
+                ease: "back.out(1.7)",
+            }, "then")
+            .to(".first-sub .animatedis", {
+                yPercent: -100,
+                stagger: 0.05,
+                ease: "back.out(1.7)",
+            }, "then")
+            .to(".second-sub .animatedis", {
+                yPercent: -100,
+                stagger: 0.05,
+                ease: "back.out(1.7)",
+            }, "then")
             .fromTo(this.sky.material, 
                 {
                     size: 0.0
                 },
                 {
                     size: 2,
-                    duration: 0.5,
-                    onComplete: resolve,   
-                })
+                    duration: 0.1,
+                }, "then")
+            .to(".arrow-svg-wrapper", {
+                opacity: 0.8,
+                top: '90%',
+                onComplete: resolve
+            })
         });
     }
 
