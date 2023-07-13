@@ -164,6 +164,7 @@ button {
 
 /* Toggle bar  ---------------------------------------- */
 .toggle-button {
+  cursor: pointer;
   top: 4%;
   right: 8%;
   z-index: 99999999999999;
@@ -177,7 +178,6 @@ button {
 }
 
 .toggle-image {
-  cursor: pointer;
   position: relative;
   width: 56px;
   height: 28px;
