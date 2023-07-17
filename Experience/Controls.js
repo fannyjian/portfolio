@@ -188,6 +188,16 @@ export default class Controls {
         });
 
         mm.add("all", () => {
+            this.highlight = document.querySelector(".highlight");
+            
+            GSAP.to(this.highlight, {
+                scrollTrigger: {
+                    trigger: this.highlight,
+                    start: "top center",
+                    toggleClass: "highlight-active",
+                }
+            })
+
             this.sections = document.querySelectorAll(".section");
             this.sections.forEach((section) => {
                 this.progressWrapper =
