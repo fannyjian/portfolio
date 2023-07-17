@@ -8,7 +8,6 @@ export default class Controls {
     constructor() {
         this.experience = new Experience();
         this.scene = this.experience.scene;
-        this.sizes = this.experience.sizes;
         this.camera = this.experience.camera;
         this.resources = this.experience.resources;
         this.time = this.experience.time;
@@ -18,58 +17,58 @@ export default class Controls {
         GSAP.registerPlugin(ScrollTrigger);
         document.querySelector(".page").style.overflow = "visible";
 
-        this.setSmoothScroll();
+        // this.setSmoothScroll();
         this.setScrollTrigger();
     }
 
-    setupASScroll() {
-        // https://github.com/ashthornton/asscroll
-        const asscroll = new ASScroll({
-            ease: 0.1,
-            disableRaf: true,
-        });
+    // setupASScroll() {
+    //     // https://github.com/ashthornton/asscroll
+    //     const asscroll = new ASScroll({
+    //         ease: 0.1,
+    //         disableRaf: true,
+    //     });
 
-        GSAP.ticker.add(asscroll.update);
+    //     GSAP.ticker.add(asscroll.update);
 
-        ScrollTrigger.defaults({
-            scroller: asscroll.containerElement,
-        });
+    //     ScrollTrigger.defaults({
+    //         scroller: asscroll.containerElement,
+    //     });
 
-        ScrollTrigger.scrollerProxy(asscroll.containerElement, {
-            scrollTop(value) {
-                if (arguments.length) {
-                    asscroll.currentPos = value;
-                    return;
-                }
-                return asscroll.currentPos;
-            },
-            getBoundingClientRect() {
-                return {
-                    top: 0,
-                    left: 0,
-                    width: window.innerWidth,
-                    height: window.innerHeight,
-                };
-            },
-            fixedMarkers: true,
-        });
+    //     ScrollTrigger.scrollerProxy(asscroll.containerElement, {
+    //         scrollTop(value) {
+    //             if (arguments.length) {
+    //                 asscroll.currentPos = value;
+    //                 return;
+    //             }
+    //             return asscroll.currentPos;
+    //         },
+    //         getBoundingClientRect() {
+    //             return {
+    //                 top: 0,
+    //                 left: 0,
+    //                 width: window.innerWidth,
+    //                 height: window.innerHeight,
+    //             };
+    //         },
+    //         fixedMarkers: true,
+    //     });
 
-        asscroll.on("update", ScrollTrigger.update);
-        ScrollTrigger.addEventListener("refresh", asscroll.resize);
+    //     asscroll.on("update", ScrollTrigger.update);
+    //     ScrollTrigger.addEventListener("refresh", asscroll.resize);
 
-        requestAnimationFrame(() => {
-            asscroll.enable({
-                newScrollElements: document.querySelectorAll(
-                    ".gsap-marker-start, .gsap-marker-end, [asscroll]"
-                ),
-            });
-        });
-        return asscroll;
-    }
+    //     requestAnimationFrame(() => {
+    //         asscroll.enable({
+    //             newScrollElements: document.querySelectorAll(
+    //                 ".gsap-marker-start, .gsap-marker-end, [asscroll]"
+    //             ),
+    //         });
+    //     });
+    //     return asscroll;
+    // }
 
-    setSmoothScroll() {
-        this.asscroll = this.setupASScroll();    
-    }
+    // setSmoothScroll() {
+    //     this.asscroll = this.setupASScroll();    
+    // }
 
     setScrollTrigger(){
         let mm = GSAP.matchMedia();
