@@ -312,7 +312,7 @@ body::-webkit-scrollbar {
 .section-heading-link {
   font-size: 40px;
   padding:0;
-  padding-left: 2px;
+  padding-right: 2px;
   font-family: "Abril-Fatface";
   font-weight: bold;
   color: var(--color-section-text);
@@ -330,6 +330,10 @@ body::-webkit-scrollbar {
 .active {
   text-shadow: 0px 0px 10px var(--color-section-text);
   transform: scaleY(1.1) scaleX(1.1) translateX(5%);
+}
+
+.clickable {
+  transform: scaleY(1.1) scaleX(1.1) translateX(7%);
 }
 
 .highlight {
@@ -445,12 +449,14 @@ body::-webkit-scrollbar {
 
 .hero-main-description {
   font-size: 18px;
-  color: var(--green)
+  color: var(--green);
+  text-shadow: 3px 5px 10px var(--color-section-text);
 }
 
 .hero-second-subheading {
   font-size: 24px;
-  color: var(--green)
+  color: var(--green);
+  text-shadow: 3px 5px 7px var(--color-section-text);
 }
 
 /* links ----------------------- */
@@ -557,6 +563,10 @@ button {
   .toggle-button {
     top: 6%;
     right: 4%
+  }
+
+  .active {
+    text-shadow: none;
   }
 
   /* hidden imgs/texts only for desktop */

@@ -93,7 +93,7 @@ export default class Controls {
                     .to(this.camera.orthographicCamera.rotation, {
                         y: 1
                     }, "third");
-            });
+        });
 
         mm.add("(max-width: 968px)", () => {
                 // resets for mobile
@@ -171,10 +171,21 @@ export default class Controls {
                     }, "third")
                     .to(this.camera.orthographicCamera.rotation, {
                         y: 1
-                    }, "third")
+                    }, "third");
             });
 
-        mm.add("(max-width: 968px)", () => {
+        mm.add("all", () => {
+            /* first section: name highlight-----------------------------------------------*/
+            this.highlight = document.querySelector(".highlight");
+            GSAP.to(this.highlight, {
+                scrollTrigger: {
+                    trigger: this.highlight,
+                    start: "top center",
+                    toggleClass: "highlight-active",
+                }
+            })
+
+            /* second section: name pop up-----------------------------------------------*/
             this.headings = document.querySelectorAll(".section-heading-link");
             this.headings.forEach((heading) => {
                 GSAP.to(heading, {
@@ -184,20 +195,32 @@ export default class Controls {
                         toggleClass: "active",
                     },
                 });
-            })
-        });
+            });
 
-        mm.add("all", () => {
-            this.highlight = document.querySelector(".highlight");
-            
-            GSAP.to(this.highlight, {
-                scrollTrigger: {
-                    trigger: this.highlight,
-                    start: "top center",
-                    toggleClass: "highlight-active",
-                }
+            /* third section: links pop up-----------------------------------------------*/
+            this.icons = document.querySelectorAll(".icon");
+            this.icons.forEach((icon) => {
+                GSAP.to(icon, {
+                    scrollTrigger: {
+                        trigger: icon,
+                        start: "top center",
+                        toggleClass: "clickable",
+                    },
+                });
             })
 
+            this.credits = document.querySelectorAll(".credit-link");
+            this.credits.forEach((credit) => {
+                GSAP.to(credit, {
+                    scrollTrigger: {
+                        trigger: credit,
+                        start: "top center",
+                        toggleClass: "clickable",
+                    },
+                });
+            })
+
+            /* all sections + progress bars -----------------------------------------------*/
             this.sections = document.querySelectorAll(".section");
             this.sections.forEach((section) => {
                 this.progressWrapper =
