@@ -133,14 +133,16 @@ button {
   transform: translateY(100%);
 }
 
-.intro-text {
+.intro-text{
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: absolute;
   top: 50%;
   left: 50%;
-  font-size: 30px;
-  color: var(--beige);
-  opacity: 60%;
-  transform: translate(-25%, -50%);
+  font-size: 20px;
+  color: var(--color-section-text);
+  transform: translate(-10%);
 }
 
 .arrow-svg-wrapper{

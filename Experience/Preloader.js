@@ -40,6 +40,8 @@ export default class PreLoader extends EventEmitter {
     firstIntro() {
         return new Promise ((resolve) => {
             this.timeline = new GSAP.timeline();
+            this.timeline.set(".animatedis", { y: 0, yPercent: 100 });
+
             this.timeline
             .to(".preloader", {
                 opacity: 0,
@@ -49,7 +51,7 @@ export default class PreLoader extends EventEmitter {
                 }
             })
             .to(".intro-text .animatedis", {
-                yPercent: -100,
+                yPercent: 0,
                 stagger: 0.05,
                 ease: "back.out(1.5)",
             })
@@ -67,7 +69,8 @@ export default class PreLoader extends EventEmitter {
         return new Promise ((resolve) => {
             this.secondTimeline = new GSAP.timeline();
 
-            this.timeline.to(".intro-text .animatedis", {
+            this.timeline
+            .to(".intro-text .animatedis", {
                 yPercent: 100,
                 stagger: 0,
                 ease: "back.in(1.5)",
@@ -114,22 +117,22 @@ export default class PreLoader extends EventEmitter {
                     duration: 0.7,
                 }, "same")
             .to(".hero-main-title .animatedis", {
-                    yPercent: -100,
+                    yPercent: 0,    
                     stagger: 0.05,
                     ease: "back.out(1.7)",
                 }, "then")
             .to(".hero-main-description .animatedis", {
-                yPercent: -100,
+                yPercent: 0,
                 stagger: 0.05,
                 ease: "back.out(1.7)",
             }, "then")
             .to(".first-sub .animatedis", {
-                yPercent: -100,
+                yPercent: 0,
                 stagger: 0.05,
                 ease: "back.out(1.7)",
             }, "then")
             .to(".second-sub .animatedis", {
-                yPercent: -100,
+                yPercent: 0,
                 stagger: 0.05,
                 ease: "back.out(1.7)",
             }, "then")

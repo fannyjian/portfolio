@@ -16,7 +16,6 @@ export default class Controls {
         this.sky = this.experience.world.sky;
 
         GSAP.registerPlugin(ScrollTrigger);
-
         document.querySelector(".page").style.overflow = "visible";
 
         this.setSmoothScroll();
@@ -87,14 +86,10 @@ export default class Controls {
                         start: "top top",
                         end: "bottom bottom",
                         scrub: 0.6,
-                        // markers: true,
-                        invalidateOnRefresh: true,
                     },
                 })
                     .to(this.actualPrince.position, {
-                        x: () => {
-                            return this.sizes.width * 0.003;
-                        },
+                        x: 4
                     });
 
                 // desktop second section --------------------------------------
@@ -104,8 +99,6 @@ export default class Controls {
                         start: "top top",
                         end: "bottom bottom",
                         scrub: 0.6,
-                        // markers: true,
-                        invalidateOnRefresh: true,
                     },
                 })
                     .to(this.actualPrince.position, {
@@ -133,8 +126,6 @@ export default class Controls {
                         start: "top top",
                         end: "bottom bottom",
                         scrub: 0.6,
-                        // markers: true,
-                        invalidateOnRefresh: true,
                     },
                 })
                     .to(this.actualPrince.scale, {
@@ -169,8 +160,6 @@ export default class Controls {
                         start: "top top",
                         end: "bottom bottom",
                         scrub: 0.6,
-                        // markers: true,
-                        invalidateOnRefresh: true,
                     },
                 })
                     .to(this.actualPrince.scale, {
@@ -192,8 +181,6 @@ export default class Controls {
                         start: "top top",
                         end: "bottom bottom",
                         scrub: 0.6,
-                        // markers: true,
-                        invalidateOnRefresh: true,
                     },
                 })
                     .to(this.actualPrince.scale, {
@@ -220,8 +207,6 @@ export default class Controls {
                         start: "top top",
                         end: "bottom bottom",
                         scrub: 0.6,
-                        // markers: true,
-                        invalidateOnRefresh: true,
                     },
                 })
                     .to(this.actualPrince.scale, {
@@ -249,7 +234,6 @@ export default class Controls {
                         trigger: heading,
                         start: "top center",
                         toggleClass: "active",
-                        invalidateOnRefresh: true,
                     },
                 });
             })
@@ -270,7 +254,7 @@ export default class Controls {
                             start: "top bottom",
                             end: "top top",
                             scrub: 0.6,
-                            invalidateOnRefresh: true,
+                            markers: true,
                         },
                     });
                     GSAP.to(section, {
@@ -280,7 +264,7 @@ export default class Controls {
                             start: "bottom bottom",
                             end: "bottom top",
                             scrub: 0.6,
-                            invalidateOnRefresh: true,
+                            markers: true,
                         },
                     });
                 } else {
@@ -291,7 +275,7 @@ export default class Controls {
                             start: "top bottom",
                             end: "top top",
                             scrub: 0.6,
-                            invalidateOnRefresh: true,
+                            markers: true,
                         },
                     });
                     GSAP.to(section, {
@@ -301,7 +285,7 @@ export default class Controls {
                             start: "bottom bottom",
                             end: "bottom top",
                             scrub: 0.6,
-                            invalidateOnRefresh: true,
+                            markers: true,
                         },
                     });
                 }
@@ -314,7 +298,7 @@ export default class Controls {
                         scrub: 0.4,
                         pin: this.progressWrapper,
                         pinSpacing: false,
-                        invalidateOnRefresh: true,
+                        // markers: true,
                     },
                 });
             });
