@@ -603,7 +603,7 @@ button {
   
   .arrow-svg-wrapper{
     position: absolute;
-    top: 75%;
+    top: 80%;
     left: 50%;
     color: var(--color-section-text);
     opacity: 0%;
