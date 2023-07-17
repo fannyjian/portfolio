@@ -253,7 +253,6 @@ export default class Controls {
                             start: "top bottom",
                             end: "top top",
                             scrub: 0.6,
-                            markers: true,
                         },
                     });
                     GSAP.to(section, {
@@ -263,7 +262,6 @@ export default class Controls {
                             start: "bottom bottom",
                             end: "bottom top",
                             scrub: 0.6,
-                            markers: true,
                         },
                     });
                 } else {
@@ -274,7 +272,6 @@ export default class Controls {
                             start: "top bottom",
                             end: "top top",
                             scrub: 0.6,
-                            markers: true,
                         },
                     });
                     GSAP.to(section, {
@@ -284,7 +281,6 @@ export default class Controls {
                             start: "bottom bottom",
                             end: "bottom top",
                             scrub: 0.6,
-                            markers: true,
                         },
                     });
                 }
@@ -297,7 +293,6 @@ export default class Controls {
                         scrub: 0.4,
                         pin: this.progressWrapper,
                         pinSpacing: false,
-                        // markers: true,
                     },
                 });
             });
