@@ -1,6 +1,5 @@
 import GSAP from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger.js";
-import ASScroll from "@ashthornton/asscroll";
 
 import Experience from "./Experience";
 
@@ -17,58 +16,8 @@ export default class Controls {
         GSAP.registerPlugin(ScrollTrigger);
         document.querySelector(".page").style.overflow = "visible";
 
-        // this.setSmoothScroll();
         this.setScrollTrigger();
     }
-
-    // setupASScroll() {
-    //     // https://github.com/ashthornton/asscroll
-    //     const asscroll = new ASScroll({
-    //         ease: 0.1,
-    //         disableRaf: true,
-    //     });
-
-    //     GSAP.ticker.add(asscroll.update);
-
-    //     ScrollTrigger.defaults({
-    //         scroller: asscroll.containerElement,
-    //     });
-
-    //     ScrollTrigger.scrollerProxy(asscroll.containerElement, {
-    //         scrollTop(value) {
-    //             if (arguments.length) {
-    //                 asscroll.currentPos = value;
-    //                 return;
-    //             }
-    //             return asscroll.currentPos;
-    //         },
-    //         getBoundingClientRect() {
-    //             return {
-    //                 top: 0,
-    //                 left: 0,
-    //                 width: window.innerWidth,
-    //                 height: window.innerHeight,
-    //             };
-    //         },
-    //         fixedMarkers: true,
-    //     });
-
-    //     asscroll.on("update", ScrollTrigger.update);
-    //     ScrollTrigger.addEventListener("refresh", asscroll.resize);
-
-    //     requestAnimationFrame(() => {
-    //         asscroll.enable({
-    //             newScrollElements: document.querySelectorAll(
-    //                 ".gsap-marker-start, .gsap-marker-end, [asscroll]"
-    //             ),
-    //         });
-    //     });
-    //     return asscroll;
-    // }
-
-    // setSmoothScroll() {
-    //     this.asscroll = this.setupASScroll();    
-    // }
 
     setScrollTrigger(){
         let mm = GSAP.matchMedia();

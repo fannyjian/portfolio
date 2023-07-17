@@ -20,6 +20,10 @@ button {
   transition: all 0.4s  /* allows smooth theme change */
 }
 
+body::-webkit-scrollbar {
+  display: none;
+}
+
 :root {
   --beige: #EFDBCE;
   --brown: #C99471;
