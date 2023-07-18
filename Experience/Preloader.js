@@ -29,7 +29,7 @@ export default class PreLoader extends EventEmitter {
         convert(document.querySelector(".intro-text"));
         convert(document.querySelector(".hero-main-title"));
         convert(document.querySelector(".hero-main-description"));
-        convert(document.querySelector(".first-sub"));
+        convert(document.querySelector(".hero-second-subheading"));
         convert(document.querySelector(".second-sub"));
 
 
@@ -45,7 +45,7 @@ export default class PreLoader extends EventEmitter {
             this.timeline
             .to(".orbit", {
                 opacity: 0.9,
-                delay: 0.8,
+                delay: 0.7,
                 })
             .to(".preloader", {
                 opacity: 0,
@@ -59,7 +59,7 @@ export default class PreLoader extends EventEmitter {
                 stagger: 0.05,
                 ease: "back.out(1.5)",
             })
-            .to(".arrow-svg-wrapper", {
+            .to(".planet", {
                 opacity: 0.8,
                 onComplete: resolve,
             }, "same")
@@ -76,7 +76,7 @@ export default class PreLoader extends EventEmitter {
                 stagger: 0,
                 ease: "back.in(1.5)",
             }, "first")
-            .to(".arrow-svg-wrapper", {
+            .to(".planet", {
                 opacity: 0,
             }, "first")
             .to(".toggle-button", {
