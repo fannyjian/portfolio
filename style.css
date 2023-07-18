@@ -91,7 +91,7 @@ body::-webkit-scrollbar {
 
 .moon span {
   font-size: 90px;
-  text-shadow: 3px 5px 6px var(--color-section-text);
+  text-shadow: 3px 5px 6px var(--green);
 }
 
 .moon span:nth-child(1) {
