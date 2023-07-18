@@ -77,7 +77,8 @@ export default class PreLoader extends EventEmitter {
                 ease: "back.in(1.5)",
             }, "first")
             .to(".planet", {
-                opacity: 0,
+                top: "60%",
+                opacity: 0
             }, "first")
             .to(".toggle-button", {
                 opacity: 1,
@@ -147,12 +148,8 @@ export default class PreLoader extends EventEmitter {
                 {
                     size: 2,
                     duration: 0.1,
+                    onComplete: resolve
                 }, "then")
-            .to(".arrow-svg-wrapper", {
-                opacity: 0.8,
-                top: '90%',
-                onComplete: resolve
-            })
         });
     }
 
