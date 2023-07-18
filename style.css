@@ -98,13 +98,15 @@ body::-webkit-scrollbar {
   margin-bottom: 0%;
   margin-left: -17%;
   transform: translateY(35%);
-  transition: transform 1s ease-in-out;
+  transition-delay: 1s;
+  transition: transform 1s linear;
 }
 
 .moon span:nth-child(2) {
   margin-top: -10%;
   margin-left: 17%;
   transform: translateY(-35%);
+  transition-delay: 1s;
   transition: transform 1s ease-in-out;
 }
 
