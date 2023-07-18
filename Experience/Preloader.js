@@ -196,9 +196,7 @@ export default class PreLoader extends EventEmitter {
 
     async playSecondIntro() {
         this.moveFlag = false;
-        this.scaleFlag = true;
         await this.secondIntro();
-        this.scaleFlag = false;
         this.emit("enablecontrols");
     }
 
@@ -210,22 +208,10 @@ export default class PreLoader extends EventEmitter {
         }
     }
 
-    scale() {
-        if (this.device === "desktop") {
-            this.prince.scale.set(0.05, 0.05, 0.05);
-        } else {
-            this.prince.scale.set(0.04, 0.04, 0.04);
-        }
-    }
-
     update() {
         // in the case that window dimensions switched device in between intros
         if (this.moveFlag) {
             this.move();
-        }
-
-        if (this.scaleFlag) {
-            this.scale();
         }
     }
 }
