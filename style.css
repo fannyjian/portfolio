@@ -185,7 +185,7 @@ body::-webkit-scrollbar {
   position: absolute;
   top: 45%;
   left: 50%;
-  font-size: 12px;
+  font-size: 16px;
   color: var(--color-section-text);
   transform: translate(-50%, -50%);
 }
@@ -622,10 +622,6 @@ button {
 
   .active {
     text-shadow: none;
-  }
-
-  .intro-text{
-    font-size: 16px;
   }
   
   .planet{
