@@ -43,6 +43,10 @@ export default class PreLoader extends EventEmitter {
             this.timeline.set(".animatedis", { y: 0, yPercent: 100 });
 
             this.timeline
+            .to(".orbit", {
+                opacity: 0.9,
+                delay: 0.8,
+                })
             .to(".preloader", {
                 opacity: 0,
                 delay: 3,
@@ -57,11 +61,8 @@ export default class PreLoader extends EventEmitter {
             })
             .to(".arrow-svg-wrapper", {
                 opacity: 0.8,
+                onComplete: resolve,
             }, "same")
-            .to(".toggle-button", {
-                opacity: 1,
-                onComplete: resolve
-            }, "same");
         });
     }
 
@@ -78,6 +79,9 @@ export default class PreLoader extends EventEmitter {
             .to(".arrow-svg-wrapper", {
                 opacity: 0,
             }, "first")
+            .to(".toggle-button", {
+                opacity: 1,
+            }, "first");
 
             if (this.device === "desktop") {
                 this.secondTimeline.fromTo(this.prince.scale, 
