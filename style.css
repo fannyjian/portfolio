@@ -122,14 +122,28 @@ body::-webkit-scrollbar {
   width: 200px;
   border-radius: 50%;
   position: absolute;
-  border: 1px solid var(--color-section-text);
   opacity: 0%;
-  animation: spin 5s infinite linear;
+  animation: spin 7s infinite linear, pulse 4s infinite ease-in-out;
 }
 
 .floating {
-  opacity: 80%;
+  opacity: 70%;
   animation: perspective 5s infinite linear;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 50px var(--brown);
+  }
+	50% {
+    box-shadow: 0 0 120px var(--brown);
+  }	
+  90% {
+    box-shadow: 0 0 50px var(--brown);
+  }	
+  100% {
+    box-shadow: 0 0 50px var(--brown);
+  }	
 }
 
 @keyframes spin {
@@ -415,24 +429,15 @@ body::-webkit-scrollbar {
 }
 
 .ring {
+  top: 80px;
   left: 50%;
   position: absolute;
-  height: 200px;
-  width: 200px;
+  height: 250px;
+  width: 250px;
   border-radius: 50%;
   transform: translate(-50%, -50%);
-  animation: pulse 1s infinite linear;
-}
 
-@keyframes pulse {
-  from {
-    -webkit-box-shadow: 0 0 50px var(--color-section-text);
-    box-shadow: 0 0 50px var(--color-section-text);
-  }
-	to {
-    -webkit-box-shadow: 0 0 100px var(--color-section-text);
-    box-shadow: 0 0 100px var(--color-section-text);
-  }	
+  animation: pulse 2s infinite ease-in-out;
 }
 
 .circle {
