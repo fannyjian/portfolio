@@ -91,12 +91,12 @@ body::-webkit-scrollbar {
 .preloader-wrapper span:nth-child(1) {
   margin-top: -5px;
   margin-left: -25px;
-  animation: down 1.5s ease-in-out forwards;
+  animation: down 1s ease-in-out forwards;
 }
 
 .preloader-wrapper span:nth-child(2) {
   margin-left: 25px;
-  animation: up 1.5s ease-in-out forwards;
+  animation: up 1s ease-in-out forwards;
 }
 
 @keyframes down {
@@ -124,27 +124,29 @@ body::-webkit-scrollbar {
   width: 190px;
   border-radius: 50%;
   position: absolute;
-  opacity: 0%;
-  animation: spin 7s infinite linear, pulse 2s infinite ease-in-out;
+  animation: spin 5s infinite ease-in-out, pulse 2.5s infinite ease-in-out;
+  animation-delay: 0.7s;
 }
 
 .floating {
+  height: 0px;
   opacity: 70%;
   animation: perspective 5s infinite linear;
+  animation-delay: 0.7s;
 }
 
 @keyframes pulse {
-  0% {
-    box-shadow: 0 0 50px var(--brown);
+  20% {
+    box-shadow: 0 0 20px var(--brown);
   }
 	50% {
     box-shadow: 0 0 120px var(--brown);
   }	
   90% {
-    box-shadow: 0 0 50px var(--brown);
+    box-shadow: 0 0 20px var(--brown);
   }	
   100% {
-    box-shadow: 0 0 50px var(--brown);
+    box-shadow: 0 0 0px var(--brown);
   }	
 }
 
