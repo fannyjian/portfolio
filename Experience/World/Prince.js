@@ -10,11 +10,6 @@ export default class Prince {
         this.sizes = this.experience.sizes;
         this.prince = this.resources.items.prince;
         this.actualPrince = this.prince.scene;
-        this.device = this.experience.sizes.device;
-
-        this.sizes.on("switchdevice", (device) => {
-            this.device = device;
-        })
 
         this.lerp = {
             current: 0,
@@ -32,19 +27,10 @@ export default class Prince {
     }
 
     onMouseMove() {
-        if (this.device == "desktop") {
-            window.addEventListener("mousemove", (e) => {
-                this.rotation = ((e.clientX - window.innerWidth / 2) * 2) / window.innerWidth;
-                this.lerp.target = this.rotation * 0.2;
-            })
-        } else {
-            window.addEventListener("devicemotion", (e) => {
-                this.rotation = e.acceleration.x.toFixed(2);
-                console.log(this.rotation);
-                this.lerp.target = this.rotation * 0.2;
-            })
-        }
-
+        window.addEventListener("mousemove", (e) => {
+            this.rotation = ((e.clientX - window.innerWidth / 2) * 2) / window.innerWidth;
+            this.lerp.target = this.rotation * 0.2;
+        })
     }
 
     resize() {
