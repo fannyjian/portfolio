@@ -124,14 +124,14 @@ body::-webkit-scrollbar {
   width: 190px;
   border-radius: 50%;
   position: absolute;
-  animation: spin 5s infinite ease-in-out, pulse 2.5s infinite ease-in-out;
+  animation: spin 6s infinite ease-in-out, pulse 3s infinite ease-in-out;
   animation-delay: 0.7s;
 }
 
 .floating {
   height: 0px;
   opacity: 70%;
-  animation: perspective 5s infinite linear;
+  animation: perspective 6s infinite linear;
   animation-delay: 0.7s;
 }
 
