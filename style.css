@@ -585,9 +585,8 @@ button {
 
 /* media queries for desktop ----------------------- */
 @media (min-width: 969px) {
-  .preloader{
+  .preloader-wrapper{
     margin-top: 0%;
-    height: 100vh;
   }
   .section {
     width: 50% 
