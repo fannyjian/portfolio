@@ -84,7 +84,7 @@ body::-webkit-scrollbar {
 
 .preloader-wrapper span {
   font-size: 90px;
-  color: var(--color-section-text);
+  color: #efdbcee6;
   text-shadow: 3px 5px 6px var(--color-section-text);
 }
 
