@@ -45,7 +45,8 @@ export default class PreLoader extends EventEmitter {
             this.timeline
             .to(".orbit", {
                 opacity: 0.9,
-                delay: 0.7,
+                delay: 0.5,
+                ease: "Power1.easeIn",
                 })
             .to(".preloader", {
                 opacity: 0,
