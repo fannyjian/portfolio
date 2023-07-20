@@ -39,7 +39,7 @@ export default class Prince {
             })
         } else {
             window.addEventListener("devicemotion", (e) => {
-                this.rotation = e.rotationRate.gamma;
+                this.rotation = e.rotationRate.gamma.toFixed(2);
                 this.lerp.target = this.rotation * 0.2;
             })
         }
