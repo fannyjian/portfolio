@@ -211,7 +211,7 @@ body::-webkit-scrollbar {
 .planet{
   height: 30px;
   position: absolute;
-  top: 70%;
+  top: 80%;
   left:45%;
   transform: translate(-50%, -50%);
   color: var(--color-section-text);
