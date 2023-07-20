@@ -91,12 +91,12 @@ body::-webkit-scrollbar {
 .preloader-wrapper span:nth-child(1) {
   margin-top: -5px;
   margin-left: -25px;
-  animation: down 1s ease-in-out forwards;
+  animation: down 1.5s ease-in-out forwards;
 }
 
 .preloader-wrapper span:nth-child(2) {
   margin-left: 25px;
-  animation: up 1s ease-in-out forwards;
+  animation: up 1.5s ease-in-out forwards;
 }
 
 @keyframes down {
@@ -115,7 +115,7 @@ body::-webkit-scrollbar {
   }
   100% {
     opacity: 100%;
-    margin-top: -50px;
+    margin-top: -55px;
   }
 }
 
