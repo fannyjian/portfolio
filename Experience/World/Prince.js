@@ -1,4 +1,3 @@
-import * as THREE from "three";
 import GSAP from "gsap";
 
 import Experience from "../Experience";
@@ -33,26 +32,22 @@ export default class Prince {
     }
 
     onMouseMove() {
-        if (this.device == 'desktop') {
-            window.addEventListener("mousemove", (e) => {
-                this.rotation = ((e.clientX - window.innerWidth / 2) * 2) / window.innerWidth;
-                this.lerp.target = this.rotation * 0.2;
-            })
-        }
+        window.addEventListener("mousemove", (e) => {
+            this.rotation = ((e.clientX - window.innerWidth / 2) * 2) / window.innerWidth;
+            this.lerp.target = this.rotation * 0.2;
+        })
     }
 
     resize() {
     }
 
     update() {
-        if (this.device == 'desktop' && this.actualPrince.scale.y == 0.05) {
-            this.lerp.current = GSAP.utils.interpolate(
-                this.lerp.current,
-                this.lerp.target,
-                this.lerp.ease
-            )
+        this.lerp.current = GSAP.utils.interpolate(
+            this.lerp.current,
+            this.lerp.target,
+            this.lerp.ease
+        )
 
-            this.actualPrince.rotation.y = this.lerp.current;
-        }
+        this.actualPrince.rotation.y = this.lerp.current;
     }
 }
