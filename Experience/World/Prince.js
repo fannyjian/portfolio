@@ -32,10 +32,18 @@ export default class Prince {
     }
 
     onMouseMove() {
-        window.addEventListener("mousemove", (e) => {
-            this.rotation = ((e.clientX - window.innerWidth / 2) * 2) / window.innerWidth;
-            this.lerp.target = this.rotation * 0.2;
-        })
+        if (this.device == "desktop") {
+            window.addEventListener("mousemove", (e) => {
+                this.rotation = ((e.clientX - window.innerWidth / 2) * 2) / window.innerWidth;
+                this.lerp.target = this.rotation * 0.2;
+            })
+        } else {
+            window.addEventListener("devicemotion", (e) => {
+                this.rotation = e.rotationRate.gamma;
+                this.lerp.target = this.rotation * 0.2;
+            })
+        }
+
     }
 
     resize() {
