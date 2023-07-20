@@ -119,8 +119,8 @@ body::-webkit-scrollbar {
 }
 
 .orbit {
-  height: 200px;
-  width: 200px;
+  height: 190px;
+  width: 190px;
   border-radius: 50%;
   position: absolute;
   opacity: 0%;
