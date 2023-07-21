@@ -433,10 +433,9 @@ body::-webkit-scrollbar {
 .mobile-two,
 .mobile-three {
   position: inherit;
-  font-family: 'Abril Fatface';
-  font-weight: bold;
-  transform: translateY(-6px);
-  font-size: 32px;
+  font-family: "Abril Fatface";
+  transform: translateY(-7px);
+  font-size: 30px;
   opacity: 0;
 }
 
@@ -467,7 +466,7 @@ body::-webkit-scrollbar {
 }
 
 .hero-main-title {
-  font-family: 'Abril Fatface';
+  font-family: "Abril Fatface";
   font-size: 50px;
   color: rgb(234, 199, 157);
 }
