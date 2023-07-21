@@ -435,9 +435,8 @@ body::-webkit-scrollbar {
   position: inherit;
   font-family: 'Abril Fatface';
   font-weight: bold;
-  transform: translateY(-10px);
-  font-size: 35px;
-  text-shadow: 1px 1px 5px #807166;
+  transform: translateY(-6px);
+  font-size: 32px;
   opacity: 0;
 }
 
