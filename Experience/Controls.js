@@ -123,7 +123,7 @@ export default class Controls {
                     }, "same");
 
                 GSAP.to(".mobile-one", {
-                    opacity: 1,
+                    opacity: 0.9,
                     scrollTrigger: {
                         trigger: ".first-section",
                         scrub: 0.5,
@@ -160,7 +160,7 @@ export default class Controls {
                     }, "second");
 
                 GSAP.to(".mobile-two", {
-                    opacity: 1,
+                    opacity: 0.9,
                     scrollTrigger: {
                         trigger: ".second-section",
                         scrub: 0.5,
@@ -198,7 +198,7 @@ export default class Controls {
                     }, "third");
                 
                 GSAP.to(".mobile-three", {
-                    opacity: 1,
+                    opacity: 0.9,
                     scrollTrigger: {
                         trigger: ".third-section",
                         scrub: 0.5,
