@@ -422,7 +422,7 @@ body::-webkit-scrollbar {
 }
 
 .mobile-title {
-  top: 3%;
+  top: 4%;
   left: 5%;
   z-index: 99999999999999;
   position: fixed;
@@ -435,8 +435,9 @@ body::-webkit-scrollbar {
   position: inherit;
   font-family: 'Abril Fatface';
   font-weight: bold;
+  transform: translateY(-20%);
   font-size: 32px;
-  text-shadow: 3px 3px 8px rgba(68, 62, 62, 0.381);
+  /* text-shadow: 1px 1px 5px var(--color-section-text); */
   opacity: 0;
 }
 
