@@ -122,6 +122,15 @@ export default class Controls {
                         y: 5
                     }, "same");
 
+                GSAP.to(".mobile-one", {
+                    opacity: 1,
+                    scrollTrigger: {
+                        trigger: ".first-section",
+                        scrub: 0.5,
+                        onLeave: () => {GSAP.to(".mobile-one", {opacity:0})}
+                    }
+                })
+
                 // mobile second section --------------------------------------
                 this.secondMoveTimeline = new GSAP.timeline({
                     scrollTrigger: {
@@ -131,6 +140,9 @@ export default class Controls {
                         scrub: 0.6,
                     },
                 })
+                    .to(".mobile-one", {
+                        opacity: 0,
+                    })
                     .to(this.actualPrince.scale, {
                         x: 0.1,
                         y: 0.1,
@@ -147,6 +159,15 @@ export default class Controls {
                         y: 7
                     }, "second");
 
+                GSAP.to(".mobile-two", {
+                    opacity: 1,
+                    scrollTrigger: {
+                        trigger: ".second-section",
+                        scrub: 0.5,
+                        onLeave: () => {GSAP.to(".mobile-two", {opacity:0})}
+                    }
+                })
+
 
                 // mobile third section --------------------------------------
                 this.thirdMoveTimeline = new GSAP.timeline({
@@ -157,6 +178,9 @@ export default class Controls {
                         scrub: 0.6,
                     },
                 })
+                    .to(".mobile-two", {
+                        opacity: 0,
+                    })
                     .to(this.actualPrince.scale, {
                         x: 0.05,
                         y: 0.05,
@@ -172,14 +196,21 @@ export default class Controls {
                     .to(this.camera.orthographicCamera.rotation, {
                         y: 1
                     }, "third");
+                
+                GSAP.to(".mobile-three", {
+                    opacity: 1,
+                    scrollTrigger: {
+                        trigger: ".third-section",
+                        scrub: 0.5,
+                    }
+                })
             });
 
         mm.add("all", () => {
             /* first section: name highlight-----------------------------------------------*/
-            this.highlight = document.querySelector(".highlight");
-            GSAP.to(this.highlight, {
+            GSAP.to(".highlight", {
                 scrollTrigger: {
-                    trigger: this.highlight,
+                    trigger: ".highlight",
                     start: "top center",
                     toggleClass: "highlight-active",
                 }
@@ -272,7 +303,7 @@ export default class Controls {
                         trigger: section,
                         start: "top top",
                         end: "bottom bottom",
-                        scrub: 0.4,
+                        scrub: 0.6,
                         pin: this.progressWrapper,
                         pinSpacing: false,
                     },

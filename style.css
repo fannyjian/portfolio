@@ -418,37 +418,26 @@ body::-webkit-scrollbar {
 
 /* Fancy section title ---------------------------------------- */
 .section-intro-wrapper {
-  position: relative;
-  border-bottom: 2px solid var(--color-text);
-  padding-bottom: 50px;
+  visibility: hidden;
 }
 
-.section-title{
-  /* text-align: center; */
-  color: var(--color-section-text);
+.mobile-title {
+  top: 4%;
+  left: 5%;
+  z-index: 99999999999999;
+  position: fixed;
+  background-color: transparent;
+}
+
+.mobile-one,
+.mobile-two,
+.mobile-three {
+  position: inherit;
   font-family: 'Abril Fatface';
-  font-weight: 500;
-  line-height: 1;
-  font-size: 80px;
-}
-
-.ring {
-  top: 80px;
-  left: 50%;
-  position: absolute;
-  height: 250px;
-  width: 250px;
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-
-  animation: pulse 2s infinite ease-in-out;
-}
-
-.circle {
-  height: 10px;
-  width: 10px;
-  border-radius: 50%;
-  background-color: var(--color-section-text);
+  font-weight: bold;
+  font-size: 28px;
+  text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.268);
+  opacity: 0;
 }
 
 /* Hero  ---------------------------------------- */
@@ -620,6 +609,25 @@ button {
   .toggle-button {
     top: 6%;
     right: 4%
+  }
+
+  .mobile-title {
+    visibility: hidden;
+  }
+
+  .section-intro-wrapper {
+    visibility: visible;
+    position: relative;
+    border-bottom: 2px solid var(--color-text);
+    padding-bottom: 50px;
+  }
+  
+  .section-title{
+    color: var(--color-section-text);
+    font-family: 'Abril Fatface';
+    font-weight: 500;
+    line-height: 1;
+    font-size: 80px;
   }
 
   .active {
