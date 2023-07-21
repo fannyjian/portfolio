@@ -142,7 +142,7 @@ export default class Controls {
                 })
                     .to(".mobile-one", {
                         opacity: 0,
-                    })
+                    }, "second")
                     .to(this.actualPrince.scale, {
                         x: 0.1,
                         y: 0.1,
@@ -180,7 +180,7 @@ export default class Controls {
                 })
                     .to(".mobile-two", {
                         opacity: 0,
-                    })
+                    }, "third")
                     .to(this.actualPrince.scale, {
                         x: 0.05,
                         y: 0.05,
