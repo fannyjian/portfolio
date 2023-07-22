@@ -219,6 +219,16 @@ body::-webkit-scrollbar {
   animation: bounce 0.5s ease-in alternate infinite;
 }
 
+.arrow {
+  position: absolute;
+  top: 90%;
+  left:45%;
+  transform: translate(-50%, -50%);
+  color: var(--color-section-text);
+  opacity: 0%;
+  animation: bounce 0.5s ease-in alternate infinite;
+}
+
 @keyframes bounce {
   0%{
     transform: translateY(0)
@@ -434,6 +444,7 @@ body::-webkit-scrollbar {
 .mobile-three {
   position: inherit;
   font-family: "Abril Fatface";
+  text-shadow: 4px 5px 5px #efdbce7c;
   transform: translateY(-7px);
   font-size: 30px;
   opacity: 0;

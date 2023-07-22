@@ -122,13 +122,16 @@ export default class Controls {
                         y: 5
                     }, "same");
 
-                GSAP.to(".mobile-one", {
-                    opacity: 1,
+                this.firstTitleTimeline = new GSAP.timeline({
                     scrollTrigger: {
                         trigger: ".first-section",
-                        scrub: 0.5,
-                        onLeave: () => {GSAP.to(".mobile-one", {opacity:0})}
-                    }
+                        start: "top top",
+                        end: "bottom bottom",
+                        scrub: 0.6,
+                    },
+                })
+                .to(".mobile-one", {
+                    opacity: 1,
                 })
 
                 // mobile second section --------------------------------------
@@ -159,13 +162,16 @@ export default class Controls {
                         y: 7
                     }, "second");
 
-                GSAP.to(".mobile-two", {
-                    opacity: 1,
+                this.secondTitleTimeline = new GSAP.timeline({
                     scrollTrigger: {
                         trigger: ".second-section",
-                        scrub: 0.5,
-                        onLeave: () => {GSAP.to(".mobile-two", {opacity:0})}
-                    }
+                        start: "top top",
+                        end: "bottom bottom",
+                        scrub: 0.6,
+                    },
+                })
+                .to(".mobile-two", {
+                    opacity: 1,
                 })
 
 
@@ -197,12 +203,16 @@ export default class Controls {
                         y: 1
                     }, "third");
                 
-                GSAP.to(".mobile-three", {
-                    opacity: 1,
+                this.thirdTitleTimeline = new GSAP.timeline({
                     scrollTrigger: {
                         trigger: ".third-section",
-                        scrub: 0.5,
-                    }
+                        start: "top top",
+                        end: "bottom bottom",
+                        scrub: 0.6,
+                    },
+                })
+                .to(".mobile-three", {
+                    opacity: 1,
                 })
             });
 

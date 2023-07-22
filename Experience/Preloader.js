@@ -144,8 +144,11 @@ export default class PreLoader extends EventEmitter {
                 {
                     size: 2,
                     duration: 0.1,
-                    onComplete: resolve
                 }, "then")
+            .to(".arrow", {
+                opacity: 0.8,
+                onComplete: resolve,
+            })
         });
     }
 
