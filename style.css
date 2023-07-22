@@ -37,12 +37,14 @@ body::-webkit-scrollbar {
   --color-text: var(--beige);
   --color-background-text: var(--brown);
   --color-section-text: #efdbcecc;
+  --color-shadow: #efdbce7c;
 }
 
 .light-theme{
   --color-text: var(--brown);
   --color-background-text: var(--beige);
   --color-section-text: #c99471b9;
+  --color-shadow: #c99471a9;
 }
 
 /* Experience  ---------------------------------------- */
@@ -444,7 +446,7 @@ body::-webkit-scrollbar {
 .mobile-three {
   position: inherit;
   font-family: "Abril Fatface";
-  text-shadow: 4px 5px 5px #efdbce7c;
+  text-shadow: 4px 5px 5px var(--color-shadow);
   transform: translateY(-7px);
   font-size: 30px;
   opacity: 0;
