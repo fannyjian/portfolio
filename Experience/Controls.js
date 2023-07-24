@@ -275,7 +275,7 @@ export default class Controls {
                             trigger: section,
                             start: "top bottom",
                             end: "top top",
-                            scrub: 0.6,
+                            scrub: 0.4,
                         },
                     });
                     GSAP.to(section, {
@@ -284,7 +284,7 @@ export default class Controls {
                             trigger: section,
                             start: "bottom bottom",
                             end: "bottom top",
-                            scrub: 0.6,
+                            scrub: 0.4,
                         },
                     });
                 } else {
@@ -294,7 +294,7 @@ export default class Controls {
                             trigger: section,
                             start: "top bottom",
                             end: "top top",
-                            scrub: 0.6,
+                            scrub: 0.4,
                         },
                     });
                     GSAP.to(section, {
@@ -303,7 +303,7 @@ export default class Controls {
                             trigger: section,
                             start: "bottom bottom",
                             end: "bottom top",
-                            scrub: 0.6,
+                            scrub: 0.4,
                         },
                     });
                 }
@@ -313,7 +313,7 @@ export default class Controls {
                         trigger: section,
                         start: "top top",
                         end: "bottom bottom",
-                        scrub: 0.6,
+                        scrub: 0.4,
                         pin: this.progressWrapper,
                         pinSpacing: false,
                     },
