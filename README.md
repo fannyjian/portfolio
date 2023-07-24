@@ -12,7 +12,7 @@ This website is inspired by [Bokoko33's award-winning website](https://bokoko33.
 
 ## Technologies
 
-React | Three JS | HTML | CSS
+Three JS | HTML | CSS | GSAP 
 
 ## Credits
 
