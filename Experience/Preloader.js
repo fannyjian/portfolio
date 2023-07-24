@@ -43,22 +43,23 @@ export default class PreLoader extends EventEmitter {
             this.timeline.set(".animatedis", { y: 0, yPercent: 100 });
 
             this.timeline
-            .to(".preloader", {
-                opacity: 0,
-                delay: 3,
-                onComplete: () => {
-                    document.querySelector(".preloader").classList.add("hidden")
-                }
-            })
+            // .to(".preloader", {
+            //     opacity: 0,
+            //     delay: 3,
+            //     onComplete: () => {
+            //         document.querySelector(".preloader").classList.add("hidden")
+            //     }
+            // })
             .to(".intro-text .animatedis", {
                 yPercent: 0,
-                stagger: 0.05,
+                // stagger: 0.05,
                 ease: "back.out(1.5)",
+                onComplete: resolve,    // TODO: remove
             })
             .to(".planet", {
                 opacity: 0.8,
-                onComplete: resolve,
-            }, "same")
+                // onComplete: resolve,
+            })
         });
     }
 
@@ -71,6 +72,7 @@ export default class PreLoader extends EventEmitter {
                 yPercent: 100,
                 stagger: 0,
                 ease: "back.in(1.5)",
+                onComplete: resolve,    // TODO: remove
             }, "first")
             .to(".planet", {
                 top: "60%",
@@ -147,7 +149,7 @@ export default class PreLoader extends EventEmitter {
                 }, "then")
             .to(".arrow", {
                 opacity: 0.8,
-                onComplete: resolve,
+                // onComplete: resolve,
             })
         });
     }

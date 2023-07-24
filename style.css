@@ -64,7 +64,7 @@ body::-webkit-scrollbar {
   display: none;
 }
 
-/* Page Content  ---------------------------------------- */
+/* Preloader Content  ---------------------------------------- */
 .preloader{
   background-color: black;
   width: 100%;
@@ -241,34 +241,58 @@ body::-webkit-scrollbar {
   }
 }
 
-/* Toggle bar  ---------------------------------------- */
-.toggle-button {
-  cursor: pointer;
-  top: 4%;
-  right: 8%;
+/* TOP MENU: nav bar  ---------------------------------------- */
+.top-wrapper {
   z-index: 99999999999999;
-  opacity: 0;
-
+  opacity: 1;
+  width: 100vw;
+  height: 10%;
   position: fixed;
   display: flex;
-  justify-content: center;
+  flex-direction: row;
   align-items: center;
   background-color: transparent;
 }
 
-.toggle-image {
+nav {
+  margin-top: auto;
+  margin-left: 5%;
+  list-style-type: none;
+  list-style: none;
+}
+
+nav a {
   position: relative;
+  font-family: "Abril Fatface";
+  color: var(--color-section-text);
+  text-shadow: 4px 5px 5px var(--color-shadow);
+  transform: translateY(-7px);
+  font-size: 30px;
+  text-decoration: none;
+}
+
+/* TOP MENU: Toggle bar  ---------------------------------------- */
+.toggle-button {
+  cursor: pointer;
+  top: 10%;
+  right: 8%;
+  position: relative;
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+
+.toggle-image {
   width: 56px;
   height: 28px;
   background-color: var(--green);
   border-radius: 999px;
   box-shadow: var(--beige) 0px 2px 10px 0px;
-  opacity: 80%;
 }
 
 .toggle-circle {
-  position: absolute;
   left: 6px;
+  position: absolute;
   border-radius: 50%;
   width: 20px;
   height: 20px;
@@ -284,6 +308,32 @@ body::-webkit-scrollbar {
 .slide {
   left: 28px;
 }
+
+
+/* MOBILE TOP MENU: section title ---------------------------------------- */
+.section-intro-wrapper {
+  visibility: hidden;
+}
+
+/* TO REMOVE */
+/* .mobile-title {
+  top: 4%;
+  left: 5%;
+  justify-self: center;
+  margin-right: auto;
+  background-color: transparent;
+}
+
+.mobile-one,
+.mobile-two,
+.mobile-three {
+  position: relative;
+  font-family: "Abril Fatface";
+  text-shadow: 4px 5px 5px var(--color-shadow);
+  transform: translateY(-7px);
+  font-size: 30px;
+  opacity: 0;
+} */
 
 /* Section formatting  ---------------------------------------- */
 .section-margin {
@@ -426,30 +476,6 @@ body::-webkit-scrollbar {
   visibility: hidden;
   transition: 0.3s ease-in-out;
   left: 10vw;
-}
-
-/* Fancy section title ---------------------------------------- */
-.section-intro-wrapper {
-  visibility: hidden;
-}
-
-.mobile-title {
-  top: 4%;
-  left: 5%;
-  z-index: 99999999999999;
-  position: fixed;
-  background-color: transparent;
-}
-
-.mobile-one,
-.mobile-two,
-.mobile-three {
-  position: inherit;
-  font-family: "Abril Fatface";
-  text-shadow: 4px 5px 5px var(--color-shadow);
-  transform: translateY(-7px);
-  font-size: 30px;
-  opacity: 0;
 }
 
 /* Hero  ---------------------------------------- */
