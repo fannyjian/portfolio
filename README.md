@@ -1,6 +1,8 @@
-# My Personal Porfolio
+# My Personal Porfolio 🪐 💫
 
-Explore my website [here](https://fannyjian.vercel.app/)! 🧸
+Explore my website [here](https://fannyjian.vercel.app/)! 🌷
+
+<div align="center"><img src="./docs/littleprince.png" alt="website screenshot" height=40%/></div>
 
 ## About
 
@@ -8,11 +10,9 @@ A little prince themed website to showcase my personal portfolio, and also a per
 
 This website is inspired by [Bokoko33's award-winning website](https://bokoko33.me/) and created by following a [youtube tutorial](https://youtu.be/rxTb9ys834w) of the website's recreation.
 
-<div align="center"><img src="./docs/littleprince.png" alt="website screenshot" height=40%/></div>
-
 ## Technologies
 
-Three JS | HTML | CSS | GSAP 
+Three JS | HTML | CSS | GSAP
 
 ## Credits
 
